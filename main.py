@@ -8,6 +8,7 @@ app.geometry("1000x700")
 def callnav1():
     add_recipe_frame.grid_remove()
     dashboard_frame.grid(row=0,column=1,sticky="nsew")
+    print("call nav")
 
 def callnav2():
     dashboard_frame.grid_remove()
