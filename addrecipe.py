@@ -3,9 +3,9 @@ from PIL import Image
 from recipe import Recipe
 
 
-def adder(recipe_name, recipe_time, recipe_ingredients, recipe_steps):
+def adder(recipe_name,description, recipe_time, recipe_ingredients, recipe_steps):
     ingredients_list = [ingredient.strip() for ingredient in recipe_ingredients.split(',')]
-    user_recipe = Recipe(recipe_name, int(recipe_time), ingredients_list, recipe_steps)
+    user_recipe = Recipe(recipe_name,description, int(recipe_time), ingredients_list, recipe_steps)
     print("added")
 
 def reset(name,time,ingredients,steps):
@@ -14,8 +14,15 @@ def reset(name,time,ingredients,steps):
      ingredients.delete(0,'end')
      steps.delete(0,'end')
      print("reset")
-
-
+def clear_default_text(event, des):
+    current_text = des.get("0.0","end")
+    if current_text.strip() == "Add a short description":
+        print("del")
+        des.delete(1.0, "end")
+def restore_default_text(event, des):
+    current_text = des.get("0.0", "end")
+    if not current_text.strip():  # Check if the text is empty
+        des.insert("0.0", "Add a short description")
 class AddRecipeFrame(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
@@ -24,20 +31,19 @@ class AddRecipeFrame(CTkFrame):
         #label
 
         font_size=10
-
-        name_label= CTkLabel(self, text="Name of the recipe:",font=("",font_size))
-        time_label= CTkLabel(self, text="Time required (in minutes):",font=("",font_size))
-        ingredients_label= CTkLabel(self, text="Ingredients:",font=("",font_size))
-        steps_label= CTkLabel(self, text="Procedure:",font=("",font_size))
        
         #entries
-        name=CTkEntry(self)
-        time=CTkEntry(self)
-        ingredients=CTkEntry(self)
-        steps=CTkEntry(self)
+        name=CTkEntry(self,placeholder_text="Add Title Here...",text_color="white",fg_color="#1B1C22",placeholder_text_color="#BFBBBB", border_width=0,font=("",30),width=400)
+        description=CTkTextbox(self,text_color="white",fg_color="#1B1C22", border_width=0,font=("",14),width=400)
+        description.insert("0.0","Add a short description")
+        description.bind("<FocusIn>", lambda event, des=description: clear_default_text(event, des))
+        description.bind("<FocusOut>", lambda event, des=description: restore_default_text(event, des))
+        time=CTkEntry(self,placeholder_text="Add Title Here...",text_color="white",fg_color="#1B1C22",placeholder_text_color="#BFBBBB", border_width=0,)
+        ingredients=CTkEntry(self,placeholder_text="Add Title Here...",text_color="white",fg_color="#1B1C22",placeholder_text_color="#BFBBBB", border_width=0,)
+        steps=CTkEntry(self,placeholder_text="Add Title Here...",text_color="white",fg_color="#1B1C22",placeholder_text_color="#BFBBBB", border_width=0,)
 
         #buttons
-        save_button = CTkButton(self,text="Save",fg_color="#F85656",corner_radius=30, command=lambda: adder(name.get(), time.get(), ingredients.get(), steps.get()))
+        save_button = CTkButton(self,text="Save",fg_color="#F85656",corner_radius=30, command=lambda: adder(name.get(),description.get("0.0","end"), time.get(), ingredients.get(), steps.get()))
         reset_button= CTkButton(self,text="Reset",fg_color="#5684F8",corner_radius=30,command=lambda: reset(name,time,ingredients,steps) )
 
 
@@ -48,25 +54,28 @@ class AddRecipeFrame(CTkFrame):
         ypos=after_label
         xpos=50
 
-        name_label.place(x=xpos,y=ypos)
+        # name_label.place(x=xpos,y=ypos)
         ypos=ypos+after_label
 
         name.place(x=xpos,y=ypos)
         ypos=ypos+after_entry
 
-        time_label.place(x=xpos,y=ypos)
+        description.place(x=xpos,y=ypos)
+        ypos=ypos+after_entry
+
+        # time_label.place(x=xpos,y=ypos)
         ypos=ypos+after_label
 
         time.place(x=xpos,y=ypos)
         ypos=ypos+after_entry
 
-        ingredients_label.place(x=xpos,y=ypos)        
+        # ingredients_label.place(x=xpos,y=ypos)        
         ypos=ypos+after_label
 
         ingredients.place(x=xpos,y=ypos)
         ypos=ypos+after_entry
 
-        steps_label.place(x=xpos,y=ypos)
+        # steps_label.place(x=xpos,y=ypos)
         ypos=ypos+after_label
 
         steps.place(x=xpos,y=ypos)

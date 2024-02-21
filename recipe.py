@@ -1,8 +1,9 @@
 # recipe.py
 import os
 class Recipe:
-    def __init__(self, name, time_mins, ingredients, steps):
+    def __init__(self, name,des, time_mins, ingredients, steps):
         self.name = name
+        self.des = des
         self.time_mins = time_mins
         self.ingredients = ingredients
         self.steps = steps
@@ -12,6 +13,7 @@ class Recipe:
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"  # Generate a filename based on the recipe name
         with open("recipies\\"+filename, 'w') as file:  # Using 'w' to overwrite the file if it already exists
             file.write(f"Recipe: {self.name}\n")
+            file.write(f"Descirption: {self.des}\n")
             file.write(f"Time: {self.time_mins} mins\n")
             file.write(f"Ingredients: {', '.join(self.ingredients)}\n")
             file.write(f"Steps: {self.steps}\n\n")

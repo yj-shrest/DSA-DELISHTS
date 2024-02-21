@@ -7,8 +7,7 @@ app.geometry("1000x700")
 
 def callnav1():
     add_recipe_frame.grid_remove()
-    dashboard_frame.grid(row=0,column=1,sticky="nsew")
-    print("call nav")
+    dashboard_frame.initialize()
 
 def callnav2():
     dashboard_frame.grid_remove()
@@ -17,8 +16,8 @@ app.grid_columnconfigure(0, weight=1)
 app.grid_columnconfigure(1, weight=3)  
 app.grid_rowconfigure(0, weight=1)
 
-navigation_frame = CTkFrame(app, fg_color="#191A1F", bg_color="#44454A")
-navigation_frame.grid(row=0, column=0, sticky="nsew")
+navigation_frame = CTkFrame(app, fg_color="#191A1F", bg_color="#44454A",width=350)
+navigation_frame.grid(row=0, column=0,sticky="snew")
 navigation_frame.grid_rowconfigure(0, weight=1)
 navigation_frame.grid_rowconfigure(1, weight=3)
 navigation_frame.grid_columnconfigure(0, weight=1)
@@ -50,8 +49,8 @@ button_filter_sort.pack(pady=5)
 
 button_favourites = CTkButton(navigation_items_frame,hover=False, text="Favourites", text_color="white", fg_color="transparent")
 button_favourites.pack(pady=5)
-dashboard_frame = DashboardFrame(app)
-add_recipe_frame = AddRecipeFrame(app)
-# dashboard_frame.grid(row=0,column=1,sticky="nsew")
+dashboard_frame = DashboardFrame(app,width=650)
+add_recipe_frame = AddRecipeFrame(app,width=650)
+dashboard_frame.grid(row=0,column=1,sticky="nsew")
 app.mainloop()
 
