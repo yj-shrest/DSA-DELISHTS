@@ -1,7 +1,0 @@
-Recipe: POtato
-Descirption: It is a very good dish
-
-Time: 10 mins
-Ingredients: 
-Steps: 
-

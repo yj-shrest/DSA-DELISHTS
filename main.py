@@ -2,11 +2,14 @@ from customtkinter import *
 from PIL import Image
 from dashboard import DashboardFrame
 from addrecipe import AddRecipeFrame
+from filtersort import FilterSort
+import os
 app = CTk()
 app.geometry("1000x700")
 nav =1
 def callnav1():
     global nav
+    filter_sort_frame.grid_remove()
     add_recipe_frame.grid_remove()
     dashboard_frame.initialize()
     nav=1
@@ -14,9 +17,19 @@ def callnav1():
 
 def callnav2():
     global nav
-    dashboard_frame.grid_remove()
+    if(nav ==3):
+        filter_sort_frame.grid_remove()
+    if(nav ==1):
+        dashboard_frame.grid_remove()
     add_recipe_frame.grid(row=0,column=1,sticky="nsew")
     nav=2
+    placeitems()
+def callnav3():
+    global nav
+    add_recipe_frame.grid_remove()
+    dashboard_frame.grid_remove()
+    filter_sort_frame.grid(row=0,column=1,sticky="nsew")
+    nav=3
     placeitems()
 
 def getnavcolor(n,nav):
@@ -58,14 +71,15 @@ def placeitems():
     button_add_recipe = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Add Recipe", text_color="white", fg_color=getnavcolor(2,nav),command=callnav2)
     button_add_recipe.pack(pady=5)
 
-    button_filter_sort = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Filter Sort", text_color="white", fg_color=getnavcolor(3,nav))
+    button_filter_sort = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Filter Sort", text_color="white", fg_color=getnavcolor(3,nav),command=callnav3)
     button_filter_sort.pack(pady=5)
 
     button_favourites = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Favourites", text_color="white", fg_color=getnavcolor(4,nav))
     button_favourites.pack(pady=5)
 placeitems()
 dashboard_frame = DashboardFrame(app,width=650)
-add_recipe_frame = AddRecipeFrame(app,width=650,height= 1000)
+add_recipe_frame = AddRecipeFrame(app,width=650)
+filter_sort_frame = FilterSort(app,width=650)
 dashboard_frame.grid(row=0,column=1,sticky="nsew")
 app.mainloop()
 

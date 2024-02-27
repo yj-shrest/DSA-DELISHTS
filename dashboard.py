@@ -4,7 +4,7 @@ class DashboardFrame(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
         self.configure(parent_frame, fg_color="#1B1C22", bg_color="#44454A")
-        self.place(relx=0.2, rely=0, relwidth=0.8, relheight=1)
+
 
         search_frame = CTkFrame(self, fg_color="transparent")
         search_frame.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.05)

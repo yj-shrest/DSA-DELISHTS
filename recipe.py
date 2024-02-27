@@ -1,21 +1,30 @@
 # recipe.py
 import os
+import shutil
+
 class Recipe:
-    def __init__(self, name,des, time_mins, ingredients, steps):
+    def __init__(self, name,hr,min,diff,des,ingredients, steps,photoPath):
         self.name = name
         self.des = des
-        self.time_mins = time_mins
+        self.min = min
+        self.hr = hr
+        self.diff = diff
         self.ingredients = ingredients
         self.steps = steps
         self.store_to_file()
+        if photoPath:
+            filename = (f"{name}.jpg")
+            destination = os.path.join("photos", filename)
+            shutil.copyfile(photoPath, destination)
 
     def store_to_file(self):
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"  # Generate a filename based on the recipe name
         with open("recipies\\"+filename, 'w') as file:  # Using 'w' to overwrite the file if it already exists
             file.write(f"Recipe: {self.name}\n")
             file.write(f"Descirption: {self.des}\n")
-            file.write(f"Time: {self.time_mins} mins\n")
-            file.write(f"Ingredients: {', '.join(self.ingredients)}\n")
+            file.write(f"Difficulty: {self.diff}\n")
+            file.write(f"Time: {self.min} hr {self.min} min\n")
+            file.write(f"Ingredients: {self.ingredients}\n")
             file.write(f"Steps: {self.steps}\n\n")
             
     def delete_recipe(self):
