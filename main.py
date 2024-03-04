@@ -4,6 +4,7 @@ from dashboard import DashboardFrame
 from addrecipe import AddRecipeFrame
 from filtersort import FilterSort
 import os
+
 app = CTk()
 app.geometry("1000x700")
 nav =1

@@ -1,1 +1,1 @@
-size=(1100, 1100)
+sticky="nsew"
