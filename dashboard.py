@@ -1,37 +1,99 @@
 from customtkinter import *
-from PIL import Image
+from PIL import Image, ImageTk
+import os
+import random
+def extract_recipe_info(file):
+    recipe_info = {}
+    for line in file:
+        if ': ' in line:
+            key, value = line.strip().split(': ', 1)
+            recipe_info[key.lower()] = value
+
+    return recipe_info
+
+# Function to create a list of recipe dictionaries from all text files in a folder
+def create_recipe_list(folder_path):
+    recipe_list = []
+    file_names = os.listdir(folder_path)
+    selected_files = random.sample(file_names, min(6, len(file_names)))
+    for file_name in selected_files:
+        if file_name.endswith('.txt'):
+            file_path = os.path.join(folder_path, file_name)
+            with open(file_path, 'r', encoding='utf-8') as file:
+                recipe_info = extract_recipe_info(file)
+                recipe_list.append(recipe_info)
+    return recipe_list
+
+# Specify the folder path containing the recipe text files
+folder_path = 'recipies'
+
+# Create the list of recipes
+food = create_recipe_list(folder_path)
+
+
+class RecipeFrame(CTkFrame):
+    def __init__(self, parent_frame, recipe_data, **kwargs):
+        super().__init__(parent_frame, **kwargs)
+        self.recipe_data = recipe_data
+        self.configure(parent_frame, fg_color="#1B1C22", bg_color="transparent")
+
+        # Description label
+        # image = image.resize((100, 100))  
+        # photo = ImageTk.PhotoImage(image)
+        # self.image_label.image = photo 
+        name = self.recipe_data['recipe']
+        image = CTkImage(light_image= Image.open('./photos/'+name+'.jpg'), size= (210,170))
+        self.image_label = CTkLabel(self, image=image, text="", corner_radius=10)
+        self.image_label.pack()
+
+        title_frame = CTkFrame(self, bg_color='#1B1C22', fg_color='transparent' )
+        title_frame.pack(padx=5)
+        title_frame.grid_columnconfigure(0, weight=1)  
+        title_frame.grid_columnconfigure(1, weight=1)  
+        title_frame.grid_rowconfigure(0, weight=1)
+        title_frame.grid_rowconfigure(1, weight=1)
+
+        self.title_label = CTkLabel(title_frame, text=self.recipe_data['recipe'], text_color="white",anchor=W, font=("", 14,'bold'),width=100,height=20)
+        self.title_label.grid(row=0,column=0,pady=(5,0))
+
+        # Information labels on the right side
+        time_label = CTkLabel(title_frame, text= self.recipe_data.get('time', '')+"  ", anchor=E,text_color="white",width=100,height=20,image=CTkImage(light_image= Image.open('./photos/timeicon.png'), size= (15,15)),compound=RIGHT)
+        time_label.grid(row=0,column=1,pady=(5,0))
+        difficulty_label = CTkLabel(title_frame, text= self.recipe_data.get('difficulty', '')+"  ",anchor=E, text_color="white",width=100,height=15,image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (15,10)),compound=RIGHT)
+        difficulty_label.grid(row=1,column=1,pady=(5,0))
 class DashboardFrame(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
-        self.configure(parent_frame, fg_color="#1B1C22", bg_color="#44454A")
+        self.configure(fg_color="#1B1C22",bg_color="#44454A")
 
 
-        search_frame = CTkFrame(self, fg_color="transparent")
-        search_frame.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.05)
+        Tagline = CTkLabel(self,text="Unleash Your Inner Chef:\nExplore, Create, and Indulge\nin a Feast of Flavors",text_color="white",font=('Helvetica',30,'bold'),justify='left',anchor=W)
+        Tagline.place(relx=0.07, rely=0.05, relwidth=0.6)
+        CoverImage = Image.open("burger.png")
+        logo_label = CTkLabel(self, text="", image=CTkImage(light_image=CoverImage, size=(200, 200)))
+        logo_label.place(relx=0.6, rely=0.0, relwidth=0.4)
+        Recommendation = CTkLabel(self,text="Recommendations",text_color="white",font=('Helvetica',20,'bold'),justify='left',anchor=W)
+        Recommendation.place(relx=0.07, rely=0.25, relwidth=0.9)
 
-        searchBar = CTkEntry(search_frame, placeholder_text="Search Recipe", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
-        searchBar.place(relx=0, rely=0, relwidth=0.8, relheight=1)
-
-        sortBy = CTkEntry(search_frame, placeholder_text="Sort By", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
-        sortBy.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
-        self.displayed_labels = []
+        self.flex_frame = CTkFrame(self, fg_color="#1B1C22", height=1000,bg_color="#1B1C22")
+        self.flex_frame.place(relx=0.05, rely=0.30, relwidth=0.9, relheight=0.9)
+        
         self.display_recipes()
+        
+    
     def display_recipes(self):
-        recipe_files = [file for file in os.listdir("recipies") if file.endswith(".txt")]
-        ypos = 100
-        for recipe_file in recipe_files:
-            with open(os.path.join("recipies", recipe_file), 'r') as file:
-                recipe_data = file.readlines()
-                recipe_name = recipe_data[0].split(":")[1].strip()
-                label = CTkLabel(self, text=recipe_name, text_color="white")
-                label.place(x=50, y=ypos)
-                self.displayed_labels.append(label)  # Add label to the list
-                ypos += 40
+        num_items_per_row = 3
+        for i, singleFood in enumerate(food):
+            row = i // num_items_per_row
+            col = i % num_items_per_row
+         
+            flex_frame = RecipeFrame(self.flex_frame, recipe_data=singleFood, corner_radius=10)
+            flex_frame.grid(column=col, row = row,  padx=5, pady=5)
+   
 
     def clear_recipes(self):
-        for label in self.displayed_labels:
-            label.destroy()  # Destroy each displayed label
-        self.displayed_labels = []  # Clear the list
+        self.flex_frame.grid_remove()
+
     def initialize(self):
         self.grid(row=0,column=1,sticky="nsew")
         self.clear_recipes()

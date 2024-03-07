@@ -24,7 +24,7 @@ class Recipe:
             file.write(f"Recipe: {self.name}\n")
             file.write(f"Descirption: {self.des}\n")
             file.write(f"Difficulty: {self.diff}\n")
-            file.write(f"Time: {self.min} hr {self.min} min\n")
+            file.write(f"Time: {self.hr} h {self.min} m\n")
             file.write(f"Ingredients: {self.ingredients}\n")
             file.write(f"Steps: {self.steps}\n\n")
    

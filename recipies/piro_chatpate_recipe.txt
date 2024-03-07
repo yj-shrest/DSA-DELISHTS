@@ -1,0 +1,9 @@
+Recipe: Piro Chatpate
+Descirption: Add a short description
+
+Difficulty: Easy
+Time: 0 h 15 m
+Ingredients: chauchau 2pkts, bhuja 200gm
+Steps: mix garne
+
+
