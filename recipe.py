@@ -1,7 +1,7 @@
 # recipe.py
 import os
 import shutil
-from hash import customhash
+from hasher import customhash
 
 class Recipe:
     def __init__(self, name,hr,min,diff,des,ingredients, steps,photoPath):
