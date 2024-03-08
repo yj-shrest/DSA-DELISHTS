@@ -4,13 +4,12 @@
   "difficulty": " Medium",
   "time": " 1 h 0 m",
   "ingredients": [
-    "yogurt 3tsp",
-    "onion 2pcs",
-    "ghee 1tsp",
-    "Chicken 500gm",
-    "green chilly 4",
-    "ginger paste 1tsp",
-    ""
+    {"name": "Yogurt", "qty": "3tsp"},
+    {"name": "Onion", "qty": "2pcs"},
+    {"name": "Ghee", "qty": "1tsp"},
+    {"name": "Chicken", "qty": "500gm"},
+    {"name": "Green chilies", "qty": "4"},
+    {"name": "Ginger paste", "qty": "1tsp"}
   ],
   "steps": [
     "firstly soak saffron in water to prepare saffron water",

@@ -57,7 +57,7 @@ class DashboardFrame(CTkFrame):
        
     def single(self,temp):
         self.single_recipe = SingleFrame(self,temp)
-        self.single_recipe.place(relx= 0.03, rely=0.05, relheight=0.95 ,relwidth= 0.92 )
+        self.single_recipe.place(relx= 0.03, rely=0.03, relheight=0.95 ,relwidth= 0.96)
 
     def display_recipes(self):
         num_items_per_row = 3

@@ -6,13 +6,18 @@ from tkinter import filedialog
 
 def adder(recipe_name,hr, min,diff, description,ingredientsEntry,recipe_steps,photopath):
     ingredients_list = []
+    all_ingredient = []
     for entry_pair in ingredientsEntry:
         ingredient_name = entry_pair[0].get()
         ingredient_qty = entry_pair[1].get()
-        ingredient_info = f"{ingredient_qty} {ingredient_name}"
+        ingredient_info ={}
+        ingredient_info["name"]= ingredient_name
+        ingredient_info["qty"]= ingredient_qty
+        all_ingredient.append(ingredient_info)
         ingredients_list.append(ingredient_info)
         steplist= recipe_steps.splitlines()
-    user_recipe = Recipe(recipe_name,int(hr),int (min),diff,description,ingredients_list, steplist,photopath)
+    
+    user_recipe = Recipe(recipe_name,int(hr),int (min),diff,description,all_ingredient, steplist,photopath)
     print("added")
 
 def eset(name,time,ingredients,steps):

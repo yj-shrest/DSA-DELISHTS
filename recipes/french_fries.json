@@ -3,7 +3,12 @@
   "description": "French fries, also known as chips, fries, finger chips, or French-fried potatoes, are batonnet or allumette-cut deep-fried potatoes.",
   "difficulty": " Easy",
   "time": " 0 h 30 m",
-  "ingredients": ["4 Potatoes ", "Vegetable oil", "Salt", "ketchup", ""],
+  "ingredients": [
+    {"name": "Potatoes", "qty": "4"},
+    {"name": "Vegetable oil", "qty": "unspecified"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Ketchup", "qty": "unspecified"}
+  ],
   "steps": [
     "Peel the potatoes and cut them into batonnet or allumette shapes, approximately 1/4 inch thick.",
     "Rinse the potato sticks in cold water to remove excess starch. Then, pat them dry with paper towels or a clean kitchen towel.",
