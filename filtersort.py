@@ -1,30 +1,57 @@
 from customtkinter import *
-from PIL import Image,ImageTk
+from PIL import Image,ImageTk,ImageDraw,ImageOps
 import json,random
-def extract_recipe_info(file):
-    recipe_info = {}
-    for line in file:
-        if ': ' in line:
-            key, value = line.strip().split(': ', 1)
-            recipe_info[key.lower()] = value
+from hasher import HashTable
+def wrap_text(text, width):
+    lines = []
+    current_line = ""
+    words = text.split()
+    for word in words:
+        if len(current_line + word) <= width:
+            current_line += word + " "
+        else:
+            lines.append(current_line)
+            current_line = word + " "
+    if current_line:
+        lines.append(current_line)
+    return "\n".join(lines)
+def create_rounded_image(image_path, size, corner_radius, opacity=255):
+  with Image.open(image_path) as image:
+    # Resize image if needed
+    image = image.resize(size, Image.ANTIALIAS)
+    
+    # Create a mask with transparent background
+    mask = Image.new('L', size, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.rounded_rectangle((0, 0, size[0], size[1]), radius=corner_radius, fill=255)
+    
+    # Apply mask to the image with desired opacity
+    image = image.convert('RGBA')
+    image.putalpha(mask.point(lambda p: p * opacity // 255))
+    
+    # Convert PIL image to PhotoImage
+    return ImageTk.PhotoImage(image)
 
-    return recipe_info
-
-# Function to create a list of recipe dictionaries from all text files in a folder
-def create_recipe_list(folder_path):
+class RoundedImageButton(CTkFrame):
+  def __init__(self, master, image_path, size=(100, 100), corner_radius=20, opacity=255):
+    super().__init__(master)
+    
+    self.image_label = CTkLabel(self,bg_color="#1B1C22",fg_color="#1B1C22",text=" ", image=create_rounded_image(image_path, size, corner_radius, opacity))
+    self.image_label.pack(padx=0, pady=0)
+    
+def create_recipe_list(filenames):
     recipe_list = []
-    file_names = os.listdir(folder_path)
-    selected_files = random.sample(file_names, min(6, len(file_names)))
+    selected_files = filenames
     for file_name in selected_files:
         if file_name.endswith('.json'):
-            file_path = os.path.join(folder_path, file_name)
+            file_path = os.path.join('recipes/', file_name)
             with open(file_path, 'r') as file:
                 recipe_info = file.read()
                 recipe_list.append(json.loads(recipe_info))
     return recipe_list
 
 folder_path = 'recipes'
-food = create_recipe_list(folder_path)
+food = create_recipe_list(os.listdir(folder_path))
 
 
 def resize_image(image, new_width, new_height):
@@ -52,27 +79,66 @@ class FilterSort(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
         self.configure(parent_frame, fg_color="#1B1C22", bg_color="#44454A")
-
+        hashtable = HashTable()
+        hashtable.hasher()
+        def onenter(event):
+            global food
+            input = searchBar.get()
+            input = input.split(",")
+            j=0
+            for i in input:
+                if i[len(i)-1] == ' ':
+                    i = i[:-1]
+                while i[0]==' ':
+                    i = i[1:]
+                input[j]=i
+                j+=1
+            filenames = hashtable.search_ing(input)
+            print(filenames)
+            food = create_recipe_list(filenames)
+            self.results_frame.destroy()
+            self.dispayRecipes()
         search_frame = CTkFrame(self, fg_color="transparent")
         search_frame.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.05)
 
         searchBar = CTkEntry(search_frame, placeholder_text="Search Recipe", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
         searchBar.place(relx=0, rely=0, relwidth=0.8, relheight=1)
+        searchBar.bind("<Return>",onenter)
 
         sortBy = CTkEntry(search_frame, placeholder_text="Sort By", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
         sortBy.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
         
-        results_frame = CTkFrame(self,fg_color="transparent")
-        results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
-
+        self.results_frame = CTkFrame(self,fg_color="transparent")
+        self.results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
+        self.dispayRecipes()
+    def dispayRecipes(self):
+        self.results_frame = CTkFrame(self,fg_color="transparent")
+        self.results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
         for i,singleFood in enumerate(food):
-            recipe_item= CTkFrame(results_frame,fg_color="transparent",border_color="#393A3B",border_width=2,corner_radius=20)
+            recipe_item= CTkFrame(self.results_frame,fg_color="transparent",border_color="#393A3B",border_width=2,corner_radius=40)
             recipe_item.place(relx=0.0,rely=0.03+0.23*i,relheight=0.20,relwidth=1)
-            recipe_image_frame = CTkFrame(recipe_item,fg_color="transparent",corner_radius=60,border_width=1)
+            recipe_image_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.25)
+            recipe_image_frame.pack(side=LEFT)
             name = singleFood["recipe"]
-            recipe_image_frame.place(relx=0.0,rely=0.01,relheight=0.98,relwidth=0.25)
-            recipe_image = Image.open('./photos/'+"_".join(name.lower().split(" "))+'.jpg')
-            recipe_image = resize_image(recipe_image,200,160)
-            image_label = CTkLabel(recipe_image_frame, text="",bg_color="transparent", image=CTkImage(light_image=recipe_image, size=(200, 160)))
-            image_label.place(relx=0,rely=0,relheight=1,relwidth=1)
+            image_path = './photos/'+"_".join(name.lower().split(" "))+'.jpg'
+            image_button = RoundedImageButton(recipe_image_frame, image_path, size=(228, 185), corner_radius=40, opacity=200)
+            image_button.pack(side=LEFT,fill=BOTH)
+
+            detail_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.7 )
+            detail_frame.pack(side=LEFT,padx=15)
+
+            title = CTkLabel(detail_frame,text= singleFood["recipe"],anchor=W,bg_color="transparent",fg_color="transparent",text_color="white",font=(' ',22,'bold'))
+            title.pack(fill=X)
+            description = CTkLabel(detail_frame,justify=LEFT,text= wrap_text(singleFood["description"],120),anchor=W,bg_color="transparent",fg_color="transparent",text_color="#BFBBBB",font=(' ',16))
+            description.pack(fill=X,pady=5)
+
+            another_frame = CTkFrame(detail_frame,fg_color="transparent",width=recipe_item.winfo_screenwidth())
+            another_frame.pack(fill=X)
+
+            time_label = CTkLabel(another_frame, text= ' '+ singleFood['time']+"  ", anchor=W,text_color="white",width=150,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/timeicon.png'), size= (20,20)),compound=LEFT,justify=LEFT)
+            time_label.pack(side=LEFT)
+
+            diff_label = CTkLabel(another_frame, text= ' '+ singleFood['difficulty']+"  ", anchor=W,text_color="white",width=100,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (22,15)),compound=LEFT,justify=LEFT)
+            diff_label.pack(side=LEFT, padx= 20)
         
+
