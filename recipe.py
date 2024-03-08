@@ -1,7 +1,8 @@
 # recipe.py
 import os
 import shutil
-from hasher import customhash
+import json
+# from hasher import customhash
 
 class Recipe:
     def __init__(self, name,hr,min,diff,des,ingredients, steps,photoPath):
@@ -19,20 +20,21 @@ class Recipe:
             shutil.copyfile(photoPath, destination)
 
     def store_to_file(self):
-        filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"  # Generate a filename based on the recipe name
-        with open("recipes\\"+filename, 'w') as file:  # Using 'w' to overwrite the file if it already exists
-            file.write(f"Recipe: {self.name}\n")
-            file.write(f"Descirption: {self.des}\n")
-            file.write(f"Difficulty: {self.diff}\n")
-            file.write(f"Time: {self.hr} h {self.min} m\n")
-            file.write(f"Ingredients: {self.ingredients}\n")
-            file.write(f"Steps: {self.steps}\n\n")
-   
-    def has(self):
+        dict ={
+      "Recipe": f"{self.name}",
+      "Description": self.des,
+      "Difficulty": self.diff,
+      "Time": f"{self.hr} h {self.min} m",
+      "Ingredients": self.ingredients,
+      "Steps": self.steps
+    }
         
-        ingredients=self.ingredients.split()
-        for i in ingredients:
-            customhash(ingredients.lower())
+        with open(f"recipes/{self.name.lower().replace(' ','_')}.json","+w") as file:
+            json.dump(dict,file,indent=4)
+    # def has(self):
+    #     ingredients=self.ingredients.split()
+    #     for i in ingredients:
+    #         customhash(ingredients.lower())
 
     def delete_recipe(self):
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"

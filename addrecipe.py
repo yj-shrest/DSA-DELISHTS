@@ -5,15 +5,14 @@ from tkinter import filedialog
 
 
 def adder(recipe_name,hr, min,diff, description,ingredientsEntry,recipe_steps,photopath):
-    ingredients_string = ""
+    ingredients_list = []
     for entry_pair in ingredientsEntry:
         ingredient_name = entry_pair[0].get()
         ingredient_qty = entry_pair[1].get()
-        ingredient_info = f"{ingredient_name} {ingredient_qty}"
-        ingredients_string += ingredient_info + ", "
-    # Remove the trailing comma and space
-    ingredients_string = ingredients_string.rstrip(", ")
-    user_recipe = Recipe(recipe_name,int(hr),int (min),diff,description,ingredients_string, recipe_steps,photopath)
+        ingredient_info = f"{ingredient_qty} {ingredient_name}"
+        ingredients_list.append(ingredient_info)
+        steplist= recipe_steps.splitlines()
+    user_recipe = Recipe(recipe_name,int(hr),int (min),diff,description,ingredients_list, steplist,photopath)
     print("added")
 
 def eset(name,time,ingredients,steps):
