@@ -8,7 +8,7 @@ hash_table = {}
 class IngredientsRecipe:
     def __init__(self, file_name, ingredient_name):
         self.ingredient_name = ingredient_name
-        self.file_name = file_name
+        self.file_name = file_name  #use va xaina tara chaiyo vane vanera rakhiraako. mero suruko vision ma chaiethyo
 
 
 def hasher():
