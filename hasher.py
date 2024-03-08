@@ -41,11 +41,13 @@ def search_ing(string):
             for item in hash_table[k]:
                 if item.ingredient_name==z.lower():
                     r.add(item.file_name)
-
             result.append(r)
             result_merge.update(result[i])
             #print(r)
             i=i+1
+            
+        if len(r)==0:
+            return (set())   
             #print("result for ",i-1 ,"is",result[i-1])
     #print(result_merge)    
     for z in result_merge:
@@ -63,6 +65,6 @@ def search_ing(string):
 hasher()
 
 
-print(search_ing({"onion"}))
+print(search_ing(["onion","Salt"]))
 
 
