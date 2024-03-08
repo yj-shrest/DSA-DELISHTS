@@ -10,7 +10,6 @@ class IngredientsRecipe:
         self.ingredient_name = ingredient_name
         self.file_name = file_name  
 
-
 def hasher():
     for file in os.listdir("recipes"):
         with open("recipes/" + file, "r", encoding="utf-8") as file_opened:
@@ -30,7 +29,6 @@ def hasher():
                     hash_table[k] = {temp}
                 else:
                     hash_table[k].add(temp)
-
 
 def search_ing(string):
     result=[]

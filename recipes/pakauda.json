@@ -1,0 +1,8 @@
+{
+  "recipe": "Pakauda",
+  "description": "Add a short description",
+  "difficulty": " Easy",
+  "time": " 2 h 3 m",
+  "ingredients": ["oa 13", "s 3", "d 4", "ff 5"],
+  "steps": ["make pakauda"]
+}
