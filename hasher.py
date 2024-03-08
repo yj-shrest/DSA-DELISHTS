@@ -37,18 +37,33 @@ def search_ing(string):
     result_merge=set()
     result_final=set()
     i=0
+
     for z in string:
+        r=set()
         k = hash(z.lower())%1024
         if len(hash_table[k])!=0:
-            r=set()
             for item in hash_table[k]:
                 if item.ingredient_name==z.lower():
                     r.add(item.file_name)
+            
+            
+           
+        
+       
+           
+                    
+
 
             result.append(r)
             result_merge.update(result[i])
             #print(r)
             i=i+1
+            
+        if len(r)==0:
+            return (set())   
+        
+                        
+            
             #print("result for ",i-1 ,"is",result[i-1])
     #print(result_merge)    
     for z in result_merge:
@@ -56,7 +71,6 @@ def search_ing(string):
             k=0
             if z not in result[j]:
                 k=333
-                #print(z)
                 break            
         if k!=333:
             result_final.add(z)
@@ -67,6 +81,6 @@ def search_ing(string):
 hasher()
 
 
-print(search_ing({"onion"}))
+print(search_ing({"onion","ghee"}))
 
 

@@ -3,7 +3,7 @@ Descirption: Add a short description
 
 Difficulty: Easy
 Time: 0 h 15 m
-Ingredients:chauchau 2pkts, bhuja 200gm
+Ingredients:chauchau 2pkts, bhuja 200gm,salt,ginger
 Steps: mix garne
 
 
