@@ -1,6 +1,7 @@
 # recipe.py
 import os
 import shutil
+from hasher import customhash
 
 class Recipe:
     def __init__(self, name,hr,min,diff,des,ingredients, steps,photoPath):
@@ -26,6 +27,19 @@ class Recipe:
             file.write(f"Time: {self.hr} h {self.min} m\n")
             file.write(f"Ingredients: {self.ingredients}\n")
             file.write(f"Steps: {self.steps}\n\n")
+   
+    def has(self):
+        
+        ingredients=self.ingredients.split()
+        for i in ingredients:
+            customhash(ingredients.lower())
+        
+
+
+
+
+
+        
             
     def delete_recipe(self):
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"
@@ -35,3 +49,4 @@ class Recipe:
         except FileNotFoundError:
             print(f"Recipe '{self.name}' not found.")
     
+

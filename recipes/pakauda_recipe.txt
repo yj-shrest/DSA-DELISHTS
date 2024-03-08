@@ -1,12 +1,9 @@
-Recipe: pakauda
+Recipe: Pakauda
 Descirption: Add a short description
 
-Difficulty: Medium
-Time: 0 hr 36 min
-Ingredients: banda 22
-Steps:  1. sab katne
-2. sab mone
-3. tel tataune
-4. fry garne
+Difficulty: Easy
+Time: 2 h 3 m
+Ingredients: oa 13, s 3, d 4, ff 5
+Steps: make pakauda
 
 
