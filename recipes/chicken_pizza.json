@@ -1,0 +1,35 @@
+{
+  "recipe": "Chicken Pizza",
+  "description": "Chicken pizza is a delicious variation of the classic Italian pizza, featuring tender chicken pieces, savory tomato sauce, gooey melted cheese, and an assortment of flavorful toppings. It's a popular choice for pizza lovers looking to enjoy a hearty and satisfying meal.",
+  "difficulty": " Medium",
+  "time": " 45 m",
+  "ingredients": [
+    {"name": "Pizza dough", "qty": "store-bought or homemade"},
+    {"name": "Tomato sauce", "qty": "1 cup"},
+    {"name": "Mozzarella cheese", "qty": "1 cup, shredded"},
+    {"name": "Cooked chicken breast", "qty": "1 cup, shredded or diced"},
+    {"name": "Red onion", "qty": "1/2, thinly sliced"},
+    {"name": "Bell peppers", "qty": "1/2 cup, diced"},
+    {"name": "Mushrooms", "qty": "1/2 cup, sliced"},
+    {"name": "Black olives", "qty": "1/4 cup, sliced"},
+    {"name": "Fresh basil leaves", "qty": "a handful, torn"},
+    {"name": "Olive oil", "qty": "1 tbsp"},
+    {"name": "Garlic powder", "qty": "1/2 tsp"},
+    {"name": "Dried oregano", "qty": "1/2 tsp"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Pepper", "qty": "to taste"},
+    {"name": "Parmesan cheese", "qty": "for garnish"}
+  ],
+  "steps": [
+    "Preheat your oven to 425°F (220°C).",
+    "Roll out the pizza dough on a floured surface to your desired thickness and shape. Transfer the dough to a lightly greased pizza pan or baking sheet.",
+    "Spread the tomato sauce evenly over the pizza dough, leaving a small border around the edges for the crust.",
+    "Sprinkle the shredded mozzarella cheese over the tomato sauce, covering the entire surface of the pizza.",
+    "Scatter the cooked chicken breast pieces over the cheese layer, followed by the sliced red onion, diced bell peppers, sliced mushrooms, and black olives.",
+    "Drizzle olive oil over the toppings and sprinkle with garlic powder, dried oregano, salt, and pepper to taste.",
+    "Place the pizza in the preheated oven and bake for 15-20 minutes, or until the crust is golden brown and the cheese is bubbly and melted.",
+    "Remove the pizza from the oven and let it cool slightly before slicing.",
+    "Garnish the pizza with fresh torn basil leaves and grated Parmesan cheese, if desired.",
+    "Slice the chicken pizza into wedges and serve hot. Enjoy your delicious homemade chicken pizza!"
+  ]
+}

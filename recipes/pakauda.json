@@ -1,0 +1,14 @@
+{
+  "recipe": "Pakauda",
+  "description": "Add a short description",
+  "difficulty": " Easy",
+  "time": " 2 h 3 m",
+  "ingredients": [
+    {"name": "Onion", "qty": "500gm"},
+    {"name": "Cabbage", "qty": "500gm"},
+    {"name": "Vegetable oil", "qty": "1ltr"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Besan", "qty": "unspecified"}
+  ],
+  "steps": ["make pakauda"]
+}

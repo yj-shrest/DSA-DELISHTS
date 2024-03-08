@@ -1,0 +1,11 @@
+{
+  "recipe": "Piro Chatpate",
+  "description": "Add a short description",
+  "difficulty": " Easy",
+  "time": " 0 h 15 m",
+  "ingredients": [
+    { "name": "Chauchau", "qty": "2pkts" },
+    { "name": "Bhuja", "qty": "200gm" }
+  ],
+  "steps": ["mix garne"]
+}

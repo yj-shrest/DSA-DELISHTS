@@ -1,0 +1,35 @@
+{
+  "recipe": "Cheese Burger",
+  "description": "A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty, but the burger can include many variations in structure, ingredients, and composition.",
+  "difficulty": " Medium",
+  "time": " 0 h 45 m",
+  "ingredients": [
+    {"name": "Ground buff", "qty": "1kg"},
+    {"name": "Hamburger buns", "qty": "4"},
+    {"name": "Slices of cheese", "qty": "4"},
+    {"name": "Lettuce leaves", "qty": "4"},
+    {"name": "Sliced tomatoes", "qty": "4"},
+    {"name": "Sliced onions", "qty": "1"},
+    {"name": "Pickle slices", "qty": "unspecified"},
+    {"name": "Ketchup", "qty": "unspecified"},
+    {"name": "Mustard", "qty": "unspecified"},
+    {"name": "Mayonnaise", "qty": "unspecified"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Pepper", "qty": "to taste"},
+    {"name": "Vegetable oil", "qty": "unspecified"}
+  ],
+  "steps": [
+    "Divide the ground buff into four equal portions and shape each portion into a patty, ensuring they are slightly larger than the size of the hamburger buns.",
+    "Season the buff patties generously with salt and pepper on both sides.",
+    "Heat a skillet or grill pan over medium-high heat and lightly grease with vegetable oil.",
+    "Once the skillet is hot, add the buff patties and cook for about 3-4 minutes on each side, or until they reach your desired level of doneness (medium-rare to well-done).",
+    "During the last minute of cooking, place a slice of cheese on top of each buff patty and allow it to melt.",
+    "While the patties are cooking, lightly toast the hamburger buns on the grill or in a toaster.",
+    "Assemble the cheeseburgers by placing a lettuce leaf, sliced tomato, and sliced onions on the bottom half of each toasted bun.",
+    "Place the cooked cheeseburger patty with melted cheese on top of the vegetables.",
+    "Add any additional toppings such as pickle slices if desired.",
+    "Spread ketchup, mustard, and mayonnaise on the top half of the toasted bun.",
+    "Place the top half of the bun over the patty to complete the cheeseburger.",
+    "Serve the cheeseburgers hot with your favorite side dishes, such as French fries or potato chips. Enjoy your delicious cheeseburger!"
+  ]
+}

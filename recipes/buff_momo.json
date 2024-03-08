@@ -1,0 +1,35 @@
+{
+  "recipe": "Buff Momo",
+  "description": "Buff momo is a traditional Nepali dumpling filled with ground buffalo meat and spices, wrapped in a thin dough, and then steamed to perfection. It is a popular dish in Nepal and other Himalayan regions, often served as a snack or appetizer.",
+  "difficulty": " Medium",
+  "time": " 1 h 30 m",
+  "ingredients": [
+    {"name": "Ground buffalo meat", "qty": "1 lb"},
+    {"name": "All-purpose flour", "qty": "2 cups"},
+    {"name": "Water", "qty": "1/2 cup"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Black pepper", "qty": "to taste"},
+    {"name": "Ginger paste", "qty": "1 tsp"},
+    {"name": "Garlic paste", "qty": "1 tsp"},
+    {"name": "Onion", "qty": "1, finely chopped"},
+    {"name": "Green chilies", "qty": "2, finely chopped"},
+    {"name": "Cilantro", "qty": "1/4 cup, chopped"},
+    {"name": "Oil", "qty": "2 tbsp"},
+    {"name": "Soy sauce", "qty": "1 tbsp"},
+    {"name": "Vinegar", "qty": "1 tbsp"},
+    {"name": "Sesame oil", "qty": "1 tsp (optional)"}
+  ],
+  "steps": [
+    "Prepare the dough for the momo wrappers by mixing the all-purpose flour, water, and a pinch of salt in a bowl. Knead the dough until it becomes smooth and elastic. Cover the dough with a damp cloth and let it rest for about 30 minutes.",
+    "In a separate bowl, combine the ground buffalo meat with salt, black pepper, ginger paste, garlic paste, chopped onion, chopped green chilies, and chopped cilantro. Mix well to incorporate all the ingredients.",
+    "Heat oil in a skillet over medium heat. Add the seasoned buffalo meat mixture to the skillet and cook until the meat is browned and cooked through, breaking it into small pieces with a spatula as it cooks.",
+    "Once the meat is cooked, remove it from the heat and let it cool slightly. Then, add soy sauce, vinegar, and sesame oil (if using) to the cooked meat mixture. Mix well to combine.",
+    "Divide the rested dough into small portions and roll each portion into a thin circle on a lightly floured surface. The circles should be about 3-4 inches in diameter.",
+    "Place a spoonful of the prepared buffalo meat filling in the center of each dough circle.",
+    "To shape the momos, hold one edge of the dough circle between your thumb and index finger and start pleating the edges together to form a sealed pouch with the filling inside. Pinch and twist the pleats together to seal the momo.",
+    "Repeat the process with the remaining dough circles and filling until all the momos are assembled.",
+    "Arrange the prepared momos on a greased steamer basket or tray, leaving some space between each momo to prevent them from sticking together.",
+    "Steam the momos over boiling water for about 15-20 minutes, or until the dough is cooked through and the filling is tender.",
+    "Once the momos are cooked, remove them from the steamer and serve hot with your favorite dipping sauce, such as spicy tomato chutney or soy-vinegar dipping sauce. Enjoy your delicious buff momos!"
+  ]
+}

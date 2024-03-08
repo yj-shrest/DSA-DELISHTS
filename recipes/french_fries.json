@@ -1,0 +1,23 @@
+{
+  "recipe": "French Fries",
+  "description": "French fries, also known as chips, fries, finger chips, or French-fried potatoes, are batonnet or allumette-cut deep-fried potatoes.",
+  "difficulty": " Easy",
+  "time": " 0 h 30 m",
+  "ingredients": [
+    {"name": "Potatoes", "qty": "4"},
+    {"name": "Vegetable oil", "qty": "unspecified"},
+    {"name": "Salt", "qty": "to taste"},
+    {"name": "Ketchup", "qty": "unspecified"}
+  ],
+  "steps": [
+    "Peel the potatoes and cut them into batonnet or allumette shapes, approximately 1/4 inch thick.",
+    "Rinse the potato sticks in cold water to remove excess starch. Then, pat them dry with paper towels or a clean kitchen towel.",
+    "Heat vegetable oil in a deep fryer or large pot to 325°F (163°C).",
+    "Carefully add the potato sticks to the hot oil in batches, ensuring not to overcrowd the fryer. Fry for about 5-7 minutes, or until they are pale and slightly cooked but not browned.",
+    "Remove the partially cooked fries from the oil and place them on a paper towel-lined plate to drain excess oil. Let them cool for a few minutes.",
+    "Increase the oil temperature to 375°F (190°C).",
+    "Once the oil is hot, return the partially cooked fries to the oil in batches and fry for an additional 2-4 minutes, or until they are golden brown and crispy.",
+    "Remove the fries from the oil and place them on a clean paper towel-lined plate to drain excess oil. Season with salt to taste.",
+    "Serve the French fries hot with ketchup or your favorite dipping sauce. Enjoy!"
+  ]
+}

@@ -1,10 +1,11 @@
 from customtkinter import *
-from tkinter import Button
+from tkinter import *
 from PIL import Image, ImageTk
 import os
 import random
 from singlepage import SingleFrame
-
+import json
+from filtersort import resize_image
 def extract_recipe_info(file):
     recipe_info = {}
     for line in file:
@@ -20,11 +21,11 @@ def create_recipe_list(folder_path):
     file_names = os.listdir(folder_path)
     selected_files = random.sample(file_names, min(6, len(file_names)))
     for file_name in selected_files:
-        if file_name.endswith('.txt'):
+        if file_name.endswith('.json'):
             file_path = os.path.join(folder_path, file_name)
-            with open(file_path, 'r', encoding='utf-8') as file:
-                recipe_info = extract_recipe_info(file)
-                recipe_list.append(recipe_info)
+            with open(file_path, 'r') as file:
+                recipe_info = file.read()
+                recipe_list.append(json.loads(recipe_info))
     return recipe_list
 
 # Specify the folder path containing the recipe text files
@@ -32,8 +33,6 @@ folder_path = 'recipes'
 
 # Create the list of recipes
 food = create_recipe_list(folder_path)
-
-
 
 class DashboardFrame(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
@@ -54,11 +53,11 @@ class DashboardFrame(CTkFrame):
         
         self.display_recipes()
 
-        # self.single()
+        # self.single(1)
        
-    def single(self):
-        self.single_recipe = SingleFrame(self)
-        self.single_recipe.place(relx= 0.03, rely=0.05, relheight=0.95 ,relwidth= 0.92 )
+    def single(self,temp):
+        self.single_recipe = SingleFrame(self,temp)
+        self.single_recipe.place(relx= 0.03, rely=0.03, relheight=0.95 ,relwidth= 0.96)
 
     def display_recipes(self):
         num_items_per_row = 3
@@ -81,10 +80,6 @@ class DashboardFrame(CTkFrame):
         self.display_recipes()
 
 
-
-
-
-
 class RecipeFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data,parent_dashboard, **kwargs):
         super().__init__(parent_frame, **kwargs)
@@ -96,7 +91,9 @@ class RecipeFrame(CTkFrame):
         # photo = ImageTk.PhotoImage(image)
         # self.image_label.image = photo 
         name = self.recipe_data['recipe']
-        image = CTkImage(light_image= Image.open('./photos/'+"_".join(name.lower().split(" "))+'.jpg'), size= (210,170))
+        img = Image.open('./photos/'+"_".join(name.lower().split(" "))+'.jpg')
+        img = resize_image(img,210,170)
+        image = CTkImage(light_image=img, size= (210,170))
         self.image_label = CTkLabel(self, image=image, text="", corner_radius=10)
         self.image_label.pack()
 
@@ -116,13 +113,13 @@ class RecipeFrame(CTkFrame):
         difficulty_label = CTkLabel(title_frame, text= self.recipe_data.get('difficulty', '')+"  ",anchor=E, text_color="white",width=100,height=15,image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (15,10)),compound=RIGHT)
         difficulty_label.grid(row=1,column=1,pady=(5,0))
 
-        transparency = CTkImage(light_image=Image.open("./photos/nothing.png"), size=(300,300))
+        transparency = PhotoImage(file="photos/nothing.png")
 
-        invisible_button = CTkButton(master=self,text="",image= transparency, bg_color="transparent", hover=True,  width=self.winfo_screenwidth(), height= self.winfo_screenwidth(), command = self.parent_dashboard.single )
-        invisible_button.place(relx=0.0, rely=0.0)
-
-    # def openSingle(self):
-    #     print("clicked")
-    #     self.parent_dashboard.single()
+        # invisible_button = Button(master=self,image=transparency, width=20, height= 20, command = self.parent_dashboard.single )
+        # invisible_button.place(relx=0.0, rely=0.0)
+        self.image_label.bind("<Button-1>",self.openSingle)
+    def openSingle(self,t):
+        current_data= self.recipe_data
+        self.parent_dashboard.single(current_data)
     
         

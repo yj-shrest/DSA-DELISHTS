@@ -6,7 +6,10 @@ from filtersort import FilterSort
 import os
 
 app = CTk()
-app.geometry("1000x700")
+screen_width = app.winfo_screenwidth()
+screen_height = app.winfo_screenheight()
+
+app.geometry(f"{screen_width}x{screen_height}+0+0")
 nav =1
 def callnav1():
     global nav
