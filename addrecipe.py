@@ -16,7 +16,7 @@ def adder(recipe_name,hr, min,diff, description,ingredientsEntry,recipe_steps,ph
     user_recipe = Recipe(recipe_name,int(hr),int (min),diff,description,ingredients_string, recipe_steps,photopath)
     print("added")
 
-def reset(name,time,ingredients,steps):
+def eset(name,time,ingredients,steps):
      name.delete(0,'end')
      time.delete(0,'end')
      ingredients.delete(0,'end')
@@ -138,10 +138,6 @@ class AddRecipeFrame(CTkFrame):
             self.photo_path = file_path
         self.add_ingredient_entry(0)
 
-# app = CTk()
-# app.geometry("1000x700")
-# add_recipe_frame = AddRecipeFrame(app,width=650)
-# app.mainloop()
 
 
 

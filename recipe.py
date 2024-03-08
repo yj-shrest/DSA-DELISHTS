@@ -20,7 +20,7 @@ class Recipe:
 
     def store_to_file(self):
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"  # Generate a filename based on the recipe name
-        with open("recipies\\"+filename, 'w') as file:  # Using 'w' to overwrite the file if it already exists
+        with open("recipes\\"+filename, 'w') as file:  # Using 'w' to overwrite the file if it already exists
             file.write(f"Recipe: {self.name}\n")
             file.write(f"Descirption: {self.des}\n")
             file.write(f"Difficulty: {self.diff}\n")
@@ -33,14 +33,7 @@ class Recipe:
         ingredients=self.ingredients.split()
         for i in ingredients:
             customhash(ingredients.lower())
-        
 
-
-
-
-
-        
-            
     def delete_recipe(self):
         filename = f"{self.name.replace(' ', '_').lower()}_recipe.txt"
         try:

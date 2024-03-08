@@ -10,10 +10,9 @@ class IngredientsRecipe:
         self.ingredient_name = ingredient_name
         self.file_name = file_name
 
-
 def hasher():
-    for file in os.listdir("recipies"):
-        with open("recipies/" + file, "r", encoding="utf-8") as file_opened:
+    for file in os.listdir("recipes"):
+        with open("recipes/" + file, "r", encoding="utf-8") as file_opened:
             content = file_opened.read()
             start_index = content.find("Ingredients") + len("ingredients:")
             end_index = content.find("Steps")
@@ -29,7 +28,6 @@ def hasher():
                     hash_table[k].add(file)
                 else:
                     hash_table[k] = {file}
-
 
 def search_ing(string):
     result=[]
