@@ -1,5 +1,7 @@
 import json
 import os
+
+
 class RecipeForSort:
     def __init__(self, filename, time, diff):
         self.filename = filename
@@ -12,11 +14,16 @@ class RecipeForSort:
             self.diff = 2
 
 directory_path = "recipes"
-def file_loader(file_list):
-    Recipe_list = [] 
+
+def file_loader(recipe_ko_vandaar=set()):
+    Recipe_list = []       
+    file_list=[]
+    if recipe_ko_vandaar:
+        file_list=recipe_ko_vandaar
+    else:
+        file_list=os.listdir(directory_path)
     for file_name in file_list:
         file_path = os.path.join(directory_path, file_name)
-        
         with open(file_path, 'r') as file:
             data = json.load(file)
         
@@ -66,7 +73,8 @@ def sort_time(recipe_list, ascending=True):
         time_counts[time] -= 1
     return sorted_filenames if ascending else sorted_filenames[::-1]
 
-def sort_diff(Recipe_list,ascending__notdescending): #parameter kina deko vanda paxi search garda kheri sort garnu pare tei search le deko list lai yesma halde hunxa
+def sort_diff(ascending__notdescending,Recipe_list=set()): 
+    Recipe_list=file_loader(Recipe_list)
     counter = [0] * 3
     output = [None] * len(Recipe_list)
 
