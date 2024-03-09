@@ -1,7 +1,6 @@
 import json
 import os
 
-Recipe_list = []        #yo sab thau use garda hunxa ni ta ek choti load garesi feri load garna paparos
 
 class RecipeForSort:
     def __init__(self, filename, time, diff):
@@ -16,23 +15,25 @@ class RecipeForSort:
 
 directory_path = "recipes"
 
-def file_loader():
-    for file_name in os.listdir(directory_path):
+def file_loader(recipe_ko_vandaar=set()):
+    Recipe_list = []       
+    file_list=[]
+    if recipe_ko_vandaar:
+        file_list=recipe_ko_vandaar
+    else:
+        file_list=os.listdir(directory_path)
+    for file_name in file_list:
         file_path = os.path.join(directory_path, file_name)
-        
         with open(file_path, 'r') as file:
             data = json.load(file)
         
         temp = RecipeForSort(file_name, data['time'], data['difficulty'])
         Recipe_list.append(temp)
-
-    #for i in range(len(Recipe_list)):
-     #   print(Recipe_list[i].filename, Recipe_list[i].diff)
-
-file_loader()               #this function should be called once at startup or when new files added
+    return Recipe_list
 
 
-def sort_diff(Recipe_list,ascending__notdescending): #parameter kina deko vanda paxi search garda kheri sort garnu pare tei search le deko list lai yesma halde hunxa
+def sort_diff(ascending__notdescending,Recipe_list=set()): 
+    Recipe_list=file_loader(Recipe_list)
     counter = [0] * 3
     output = [None] * len(Recipe_list)
 
@@ -56,4 +57,4 @@ def sort_diff(Recipe_list,ascending__notdescending): #parameter kina deko vanda 
         output.reverse()
         return output
 
-print(sort_diff(Recipe_list,0))
+print(sort_diff(1,{"buff_momo.json","milk_tea.json"}))
