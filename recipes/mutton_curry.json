@@ -1,0 +1,81 @@
+{
+    "recipe": "Mutton Curry",
+    "description": "Kerala-Style Mutton Curry: This is a delicious mutton recipe, which is made with south Indian flavors. It is a perfect curry for spice lovers.",
+    "difficulty": "Easy",
+    "time": "0 h 30 m",
+    "ingredients": [
+      {
+        "name": "Mutton",
+        "qty": "350 gram"
+      },
+      {
+        "name": "Ginger",
+        "qty": "1 tsp, chopped"
+      },
+      {
+        "name": "Garlic",
+        "qty": "1 tsp, chopped"
+      },
+      {
+        "name": "Haldi",
+        "qty": "1/2 tsp"
+      },
+      {
+        "name": "Green chilli",
+        "qty": "1, chopped"
+      },
+      {
+        "name": "Shallots",
+        "qty": "1/4 cup"
+      },
+      {
+        "name": "Curry leaves",
+        "qty": "8-10"
+      },
+      {
+        "name": "Water",
+        "qty": "As required"
+      },
+      {
+        "name": "Salt",
+        "qty": "To taste"
+      },
+      {
+        "name": "Coconut oil",
+        "qty": "2-3 tbsp"
+      },
+      {
+        "name": "Red chilli powder",
+        "qty": "1 tsp"
+      },
+      {
+        "name": "Sliced onions",
+        "qty": "¾ cup"
+      },
+      {
+        "name": "Grated ginger",
+        "qty": "1 tsp"
+      },
+      {
+        "name": "Garlic cloves",
+        "qty": "3-4, chopped"
+      },
+      {
+        "name": "Tomatoes",
+        "qty": "¼ cup"
+      },
+      {
+        "name": "Fresh coconut",
+        "qty": "1 tbsp, sliced"
+      }
+    ],
+    "steps": [
+      "To begin with, we first need to cook the mutton. Add it to a pressure cooker along with water, haldi, curry leaves, ginger, garlic, shallots, green chillies, and salt. Mix well and pressure cook for around 15-20 minutes, or until the whistle goes off.",
+      "Now, heat coconut oil in a pan set on a medium flame. Once it's hot, add the curry leaves and onions. Saute for a minute or two, and then add the ginger and garlic.",
+      "Next, add the fresh coconut, tomatoes, and red chilli powder, along with the cooked mutton. Make sure to add the water with it as well.",
+      "Reduce the heat to low, cover with a lid, and slow cook for 20–25 minutes, stirring occasionally in between.",
+      "Kerala-style mutton curry is ready to be relished. Serve hot and enjoy!"
+    ],
+    "isfav": false
+  }
+  

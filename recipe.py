@@ -15,18 +15,19 @@ class Recipe:
         self.steps = steps
         self.store_to_file()
         if photoPath:
-            filename = (f"{name}.jpg")
+            filename = (f"{name.lower().replace(' ','_')}.jpg")
             destination = os.path.join("photos", filename)
             shutil.copyfile(photoPath, destination)
 
     def store_to_file(self):
         dict ={
-      "Recipe": f"{self.name}",
-      "Description": self.des,
-      "Difficulty": self.diff,
-      "Time": f"{self.hr} h {self.min} m",
-      "Ingredients": self.ingredients,
-      "Steps": self.steps
+      "recipe": f"{self.name}",
+      "description": self.des,
+      "difficulty": self.diff,
+      "time": f"{self.hr} h {self.min} m",
+      "ingredients": self.ingredients,
+      "steps": self.steps,
+      "isfav": False
     }
         
         with open(f"recipes/{self.name.lower().replace(' ','_')}.json","+w") as file:

@@ -1,0 +1,50 @@
+{
+    "recipe": "Kheer",
+    "description": "Kheer is a creamy and aromatic Indian rice pudding made with rice, milk, sugar, and flavored with cardamom, saffron, and nuts. It's a popular dessert served during festivals and special occasions.\n",
+    "difficulty": "Easy",
+    "time": "1 h 30 m",
+    "ingredients": [
+        {
+          "name": "Basmati rice",
+          "qty": "1/4 cup"
+        },
+        {
+          "name": "Milk",
+          "qty": "1 liter"
+        },
+        {
+          "name": "Sugar",
+          "qty": "1/2 cup"
+        },
+        {
+          "name": "Cardamom powder",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Saffron strands",
+          "qty": "A pinch, soaked in warm milk"
+        },
+        {
+          "name": "Assorted nuts (almonds, cashews, pistachios)",
+          "qty": "1/4 cup, chopped"
+        },
+        {
+          "name": "Raisins",
+          "qty": "2 tablespoons"
+        },
+        {
+          "name": "Ghee",
+          "qty": "1 tablespoon"
+        }
+      ],
+      "steps": [
+        "Wash the basmati rice thoroughly and soak it in water for about 30 minutes.",
+        "In a heavy-bottomed pan, heat ghee over medium heat. Add the soaked rice and sauté for a couple of minutes.",
+        "Add milk to the pan and bring it to a gentle boil. Reduce the heat to low and let the rice cook in the milk, stirring occasionally, until it becomes thick and creamy. This may take about 45 minutes to 1 hour.",
+        "Once the rice is cooked and the kheer has thickened, add sugar, cardamom powder, saffron-soaked milk, chopped nuts, and raisins to the pan. Mix well and cook for another 5-10 minutes.",
+        "Remove the kheer from heat and let it cool to room temperature. It will thicken further as it cools.",
+        "Serve the kheer chilled or at room temperature, garnished with more chopped nuts and saffron strands if desired.",
+        "Enjoy the creamy and flavorful goodness of homemade kheer!"
+      ],
+      "isfav":false
+}

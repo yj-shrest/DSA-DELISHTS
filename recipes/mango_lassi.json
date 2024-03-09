@@ -1,0 +1,50 @@
+{
+    "recipe": "Mango Lassi",
+    "description": "Mango lassi is a delightful and refreshing Indian drink made with ripe mangoes and yogurt. It's creamy, smooth, and bursting with sweet mango flavor.",
+    "difficulty": "Easy",
+    "time": "0 h 10 m",
+    "ingredients": [
+      {
+        "name": "Mango",
+        "qty": "2 large, peeled and diced"
+      },
+      {
+        "name": "Plain yogurt",
+        "qty": "1 cup"
+      },
+      {
+        "name": "Milk",
+        "qty": "1/2 cup"
+      },
+      {
+        "name": "Sugar or honey",
+        "qty": "2-3 tablespoons, or to taste"
+      },
+      {
+        "name": "Ice cubes",
+        "qty": "As needed"
+      },
+      {
+        "name": "Cardamom powder",
+        "qty": "1/4 teaspoon (optional)"
+      },
+      {
+        "name": "Saffron strands",
+        "qty": "For garnish (optional)"
+      },
+      {
+        "name": "Pistachios or almonds",
+        "qty": "For garnish (optional)"
+      }
+    ],
+    "steps": [
+      "In a blender, combine the diced mangoes, plain yogurt, milk, sugar or honey, and cardamom powder (if using).",
+      "Blend until smooth and creamy. If the lassi is too thick, you can add more milk to reach your desired consistency.",
+      "Add ice cubes to the blender and blend again until the lassi is chilled and frothy.",
+      "Taste the lassi and adjust the sweetness according to your preference by adding more sugar or honey if needed.",
+      "Pour the mango lassi into glasses and garnish with saffron strands and chopped pistachios or almonds if desired.",
+      "Serve immediately and enjoy the refreshing taste of mango lassi!"
+    ],
+    "isfav": false
+  }
+  

@@ -1,20 +1,64 @@
 {
     "recipe": "Piro Chatpate",
-    "description": "Add a short description",
+    "description": "Chatpate is a delightful and vibrant street food from Nepal, offering a burst of flavors and textures in every bite. This recipe captures the essence of classic chatpate, focusing on puffed rice, fresh vegetables, and a tangy sauce.",
     "difficulty": " Easy",
     "time": " 0 h 15 m",
     "ingredients": [
         {
-            "name": "Chauchau",
-            "qty": "2pkts"
+          "name": "Puffed rice (murmura)",
+          "qty": "2 cups"
         },
         {
-            "name": "Bhuja",
-            "qty": "200gm"
+          "name": "Potato",
+          "qty": "1 medium, boiled and cubed"
+        },
+        {
+          "name": "Tomato",
+          "qty": "1 medium, chopped"
+        },
+        {
+          "name": "Onion",
+          "qty": "1 medium, chopped"
+        },
+        {
+          "name": "Cucumber",
+          "qty": "1/2, chopped"
+        },
+        {
+          "name": "Fresh coriander leaves",
+          "qty": "1/4 cup, chopped"
+        },
+        {
+          "name": "Green chilies",
+          "qty": "1 tablespoon, chopped (adjust to your spice preference)"
+        },
+        {
+          "name": "Peanuts",
+          "qty": "1/2 cup, chopped"
+        },
+        {
+          "name": "Lemon juice",
+          "qty": "1 tablespoon"
+        },
+        {
+          "name": "Black salt",
+          "qty": "1 teaspoon"
+        },
+        {
+          "name": "Cumin powder",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Red chili powder",
+          "qty": "1/4 teaspoon"
         }
-    ],
-    "steps": [
-        "mix garne"
-    ],
+      ],
+      "steps": [
+        "Prepare the Vegetables: Boil the potato and cut it into small cubes. Chop the tomato, onion, cucumber, green chilies, and coriander leaves.",
+        "Make the Sauce: In a small bowl, combine lemon juice, black salt, cumin powder, red chili powder, and water. Stir well to create a tangy sauce. Adjust the water content for your desired consistency. You can add chopped mint leaves or a tablespoon of yogurt for a richer flavor (optional).",
+        "Assemble the Chatpate: In a large serving bowl, combine the puffed rice, cubed potato, chopped vegetables (tomato, onion, cucumber, green chilies), and chopped peanuts.",
+        "Pour the Sauce: Drizzle the prepared sauce over the chatpate mixture. Toss gently to ensure everything is evenly coated.",
+        "Garnish and Serve: Garnish with fresh coriander leaves. You can also add a sprinkle of sev, boondi, or papri for additional texture and flavor. Serve immediately and enjoy the burst of flavors!"
+      ],
     "isfav": false
 }
