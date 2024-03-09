@@ -3,6 +3,8 @@ from PIL import Image, ImageTk
 # from filtersort import resize_image
 import time
 import json
+from playsound import playsound
+file = "timer.mp3"
 def resize_image(image, new_width, new_height):
     desired_aspect_ratio = new_width/new_height  
     # Calculate the new image size while maintaining the desired aspect ratio
@@ -85,6 +87,9 @@ class ClockFrame(CTkFrame):
         self.label.configure(text=formatted_time)
         if(self.seconds>0):
             self.after(1000, self.update_timer)
+        else:
+            playsound(file, False)
+
 class SingleFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data):
         global min,clock
@@ -187,6 +192,6 @@ class SingleFrame(CTkFrame):
     def start(self):
         global clock
         clock.destroy()
-        sec = int(self.min.get())*60
+        sec = int(self.min.get())*6
         clock = ClockFrame(self.title_frame,sec)
         clock.start_timer()

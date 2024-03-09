@@ -31,7 +31,6 @@ def namesearcher(string):
         for file in os.listdir("recipes"):
             file=file.replace('_',' ')
             file=file.split('.json')[0]
-            print(file)
             j=0
             k=0
             for char in (file):

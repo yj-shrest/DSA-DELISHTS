@@ -85,17 +85,17 @@ navigation_items_frame.grid(row=1, column=0, sticky="nsew", pady=(0, 10))
 def placeitems():
     for widget in navigation_items_frame.winfo_children():
         widget.destroy()
-    button_dashboard = CTkButton(navigation_items_frame,hover=False,corner_radius=30,text="Dashboard", text_color="white", fg_color=getnavcolor(1,nav),command=callnav1)
-    button_dashboard.pack(pady=5)
+    button_dashboard = CTkButton(navigation_items_frame,hover=False,corner_radius=30,text="Dashboard", text_color="white", fg_color=getnavcolor(1,nav),command=callnav1,font=(' ',18))
+    button_dashboard.pack(pady=8)
 
-    button_add_recipe = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Add Recipe", text_color="white", fg_color=getnavcolor(2,nav),command=callnav2)
-    button_add_recipe.pack(pady=5)
+    button_add_recipe = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Add Recipe", text_color="white", fg_color=getnavcolor(2,nav),command=callnav2,font=(' ',18))
+    button_add_recipe.pack(pady=8)
 
-    button_filter_sort = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Filter Sort", text_color="white", fg_color=getnavcolor(3,nav),command=callnav3)
-    button_filter_sort.pack(pady=5)
+    button_filter_sort = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Filter Sort", text_color="white", fg_color=getnavcolor(3,nav),command=callnav3,font=(' ',18))
+    button_filter_sort.pack(pady=8)
 
-    button_favourites = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Favourites", text_color="white", fg_color=getnavcolor(4,nav),command=callnav4)
-    button_favourites.pack(pady=5)
+    button_favourites = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Favourites", text_color="white", fg_color=getnavcolor(4,nav),command=callnav4,font=(' ',18))
+    button_favourites.pack(pady=8)
 placeitems()
 dashboard_frame = DashboardFrame(app,width=650)
 add_recipe_frame = AddRecipeFrame(app,width=650)
