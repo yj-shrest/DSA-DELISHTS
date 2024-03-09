@@ -119,6 +119,23 @@ class AddRecipeFrame(CTkFrame):
         filename =os.path.basename(self.photo_path)
         PhotoPathLabel = CTkLabel(self,text=filename,text_color="#BFBBBB",bg_color="#1B1c22",font=("",12))
         PhotoPathLabel.place(x=x+10,y=start_y)
+        
+    def deleter(self):
+        if self.added_message:
+            self.added_message.destroy()
+        if self.incomplete_message:
+            self.incomplete_message.destroy()
+        if self.type_message:
+            self.type_message.destroy()
+        
+    def clearer(self):
+        self.clearAll()
+    
+   
+
+        
+        
+        
     def upload_photo(self):
         print("OPen box")
         # Open file dialog to select photo
@@ -127,6 +144,7 @@ class AddRecipeFrame(CTkFrame):
             self.photo_path = file_path
         self.add_ingredient_entry(0)
     def clearAll(self):
+        
         self.name.delete(0,'end')
         self.description.delete(0.0,'end')
         self.Steps.delete(0.0,'end')
@@ -138,6 +156,9 @@ class AddRecipeFrame(CTkFrame):
         self.hr.delete(0,'end')
         self.min.delete(0,'end')
     def adder(self,recipe_name,hr, min,diff, description,ingredientsEntry,recipe_steps,photopath):
+        self.added_message=CTkLabel(self,text="Recipe added succesfully🧑‍🍳",text_color="#BFBBBB",bg_color="#1B1c22",font=("",14))
+        self.type_message=CTkLabel(self,text="Oops! Please enter a valid number",text_color="#BFBBBB",bg_color="#1b1c22")
+        self.incomplete_message=CTkLabel(self,text="Oops! It seems like we're missing some details.",text_color="#BFBBBB",bg_color="#1b1c22")
         ingredients_list = []
         all_ingredient = []
         for entry_pair in ingredientsEntry:
@@ -149,11 +170,27 @@ class AddRecipeFrame(CTkFrame):
             all_ingredient.append(ingredient_info)
             ingredients_list.append(ingredient_info)
             steplist= recipe_steps.splitlines()
-        
+            if (not ingredient_info or not ingredient_name or not ingredient_qty):
+                self.incomplete_message.place(relx=0.1,rely=0.65,relheight=0.1)
+                self.after(3000, self.deleter)
+                return
+            
+            if (not hr.isdigit() or not min.isdigit()):
+                self.type_message.place(relx=0.1,rely=0.65,relheight=0.1)
+                self.after(3000, self.deleter)
+                return
+            
+        print(recipe_steps)
         Recipe(recipe_name,int(hr),int (min),diff,description,all_ingredient, steplist,photopath)
-        print("added")
-        self.clearAll()
+        
+        self.added_message.place(relx=0.1,rely=0.65,relheight=0.1)
+        self.after(2,self.clearer)
+        self.after(2000, self.deleter)
+        
 
+    #def added_info(self):
+      #  self.toast=CTkLabel(text="Added successfully")
+        
    
 
 

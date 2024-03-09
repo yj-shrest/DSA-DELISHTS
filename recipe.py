@@ -14,10 +14,15 @@ class Recipe:
         self.ingredients = ingredients
         self.steps = steps
         self.store_to_file()
-        if photoPath:
-            filename = (f"{name.lower().replace(' ','_')}.jpg")
-            destination = os.path.join("photos", filename)
-            shutil.copyfile(photoPath, destination)
+        if not photoPath:
+            photoPath=os.path.dirname(os.path.abspath(__file__))+'/logo.png'
+            
+        filename = (f"{name.lower().replace(' ','_')}.jpg")
+        destination = os.path.join("photos", filename)
+        shutil.copyfile(photoPath, destination)
+        print(photoPath)
+        
+            
 
     def store_to_file(self):
         dict ={
