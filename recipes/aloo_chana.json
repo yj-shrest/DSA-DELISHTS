@@ -1,0 +1,76 @@
+{
+    "recipe": "Aloo Chana",
+    "description": "Aloo Chana is a flavorful and hearty dish made with potatoes, chickpeas, and a blend of aromatic spices. It's a popular vegetarian dish enjoyed in India and beyond, often served with rice or flatbread.\n",
+    "difficulty": "Easy",
+    "time": "0 h 40 m",
+    "ingredients": [
+        {
+          "name": "Potatoes",
+          "qty": "2 large, diced"
+        },
+        {
+          "name": "Chickpeas (cooked or canned)",
+          "qty": "1 can (15 oz), drained and rinsed"
+        },
+        {
+          "name": "Onion",
+          "qty": "1 large, finely chopped"
+        },
+        {
+          "name": "Tomatoes",
+          "qty": "2 medium-sized, finely chopped"
+        },
+        {
+          "name": "Ginger-garlic paste",
+          "qty": "1 tablespoon"
+        },
+        {
+          "name": "Green chilies",
+          "qty": "2, slit"
+        },
+        {
+          "name": "Turmeric powder",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Coriander powder",
+          "qty": "1 teaspoon"
+        },
+        {
+          "name": "Cumin powder",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Red chili powder",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Garam masala",
+          "qty": "1/2 teaspoon"
+        },
+        {
+          "name": "Salt",
+          "qty": "To taste"
+        },
+        {
+          "name": "Cooking oil",
+          "qty": "2 tablespoons"
+        },
+        {
+          "name": "Fresh coriander leaves",
+          "qty": "For garnish"
+        }
+      ],
+      "steps": [
+        "Heat oil in a large skillet or pan over medium heat. Add chopped onions and sauté until golden brown.",
+        "Add ginger-garlic paste and slit green chilies to the skillet. Sauté for a minute until fragrant.",
+        "Add chopped tomatoes to the skillet and cook until they turn mushy.",
+        "Add diced potatoes to the skillet along with turmeric powder, coriander powder, cumin powder, red chili powder, garam masala, and salt. Mix well to coat the potatoes with the spices.",
+        "Cover the skillet and let the potatoes cook for about 10 minutes, or until they are partially cooked.",
+        "Add cooked chickpeas to the skillet and mix well with the potatoes and spices.",
+        "Cover the skillet again and let the mixture cook for another 10-15 minutes, or until the potatoes are fully cooked and tender.",
+        "Once the potatoes are cooked, garnish with fresh coriander leaves.",
+        "Serve hot with rice or flatbread. Enjoy your delicious Aloo Chana!"
+      ],
+      "isfav": false
+}

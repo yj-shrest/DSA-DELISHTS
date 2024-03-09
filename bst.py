@@ -75,10 +75,7 @@ class BST:
             self._inorder_traversal(root.left, result)
             result.append(root.key.filename)
             self._inorder_traversal(root.right, result)
-
-bst=BST()
-
-
+bst = BST()
 def createtree():                   #call at starup always
     for i in file_loader():
         bst.insert(i)
@@ -109,6 +106,7 @@ def sort_time(ascending__not_descending,filenames=set()):
             output.reverse()
             return output
 createtree()
+# print(sort_time(1,{"milk_tea.json","cheese_burger.json"}))
             
                 
             

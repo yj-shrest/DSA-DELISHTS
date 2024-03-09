@@ -1,17 +1,39 @@
 {
-    "recipe": "milk tea",
-    "description": "Add a short description\n",
+    "recipe": "Milk Tea",
+    "description": "Milk tea, also known as 'chai' in many cultures, is a comforting and aromatic beverage made by brewing tea leaves with milk and spices. It's a popular choice for a cozy morning or an afternoon pick-me-up.",
     "difficulty": "Easy",
-    "time": "0 h 15 m",
-    "ingredients": [],
-    "steps": [
-        "pani tataune",
-        "chyapatti halne",
-        "chini halne",
-        "dhudh halne",
-        "umalne",
-        "cup maa halne",
-        "khane"
+    "time": "0 h 10 m",
+    "ingredients": [
+      {
+        "name": "Water",
+        "qty": "1 cup"
+      },
+      {
+        "name": "Tea leaves (black tea)",
+        "qty": "1-2 teaspoons"
+      },
+      {
+        "name": "Milk",
+        "qty": "1 cup"
+      },
+      {
+        "name": "Sugar",
+        "qty": "To taste"
+      },
+      {
+        "name": "Spices",
+        "qty": "As desired"
+      }
     ],
-    "isfav": true
-}
+    "steps": [
+      "Boil water in a saucepan or kettle.",
+      "Add tea leaves to the boiling water and let it simmer for 2-3 minutes, depending on how strong you like your tea.",
+      "Pour milk into the saucepan and stir well.",
+      "Add sugar to taste and any desired spices, such as cardamom, cinnamon, or ginger.",
+      "Let the tea simmer for another 2-3 minutes, allowing the flavors to infuse.",
+      "Strain the tea into cups or mugs and serve hot.",
+      "Enjoy your comforting cup of milk tea!"
+    ],
+    "isfav": false
+  }
+  
