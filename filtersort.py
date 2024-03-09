@@ -122,9 +122,9 @@ class FilterSort(CTkFrame):
         searchBar.bind("<Return>",onenter)
         searchBar.bind("<KeyRelease>",onkeypress)
 
-        sortBy = CTkEntry(search_frame, placeholder_text="Sort By", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
-        sortBy.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
-        
+        self.sortBy = CTkOptionMenu(search_frame, values=["Time","Difficulty"],fg_color="#393A3B",button_color="#393A3B",dropdown_fg_color="#393A3B",button_hover_color="#393A3B",dropdown_hover_color="#393A3B",dropdown_text_color="white",text_color="white")
+        self.sortBy.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
+        self.sortBy.bind("<Button-1>",self.sort)
         self.results_frame = CTkFrame(self,fg_color="transparent")
         self.results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
         self.dispayRecipes()
@@ -134,6 +134,8 @@ class FilterSort(CTkFrame):
         print(temp)
         self.single_recipe.place(relx= 0.03, rely=0.03, relheight=0.95 ,relwidth= 0.96)
 
+    def sort(self,t):
+        print(self.sortBy.get())
    
     def dispayRecipes(self):
 

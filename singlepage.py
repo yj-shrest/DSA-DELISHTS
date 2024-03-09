@@ -2,9 +2,7 @@ from customtkinter import *
 from PIL import Image, ImageTk
 # from filtersort import resize_image
 import time
-
-
-
+import json
 def resize_image(image, new_width, new_height):
     desired_aspect_ratio = new_width/new_height  
     # Calculate the new image size while maintaining the desired aspect ratio
@@ -42,6 +40,32 @@ def wrap_text(text, width):
     if current_line:
         lines.append(current_line)
     return "\n".join(lines)
+class FavImage(CTkLabel):
+    def __init__(self,parent_frame,parent):
+        super().__init__(parent_frame)
+        self.parent = parent
+        self.parent_frame = parent_frame
+        if(self.parent.recipe_data["isfav"]):
+            path = './photos/redfav.png'
+        else:
+            path = './photos/fav.png'
+        self.configure(text="" ,anchor=E, bg_color="#1B1C22",fg_color="#1B1C22", image=CTkImage(light_image= Image.open(path), size= (40,40)))
+        self.pack(side=RIGHT,pady=5)
+        self.bind("<Button-1>",self.toggleFav)
+    def toggleFav(self,t):
+        self.parent.recipe_data["isfav"]=not self.parent.recipe_data["isfav"]
+        name = self.parent.recipe_data["recipe"]
+        with open(f"recipes/{name.lower().replace(' ','_')}.json","+w") as file:
+            json.dump(self.parent.recipe_data,file,indent=4)
+        if(self.parent.recipe_data["isfav"]):
+            with open(f"fav/{name.lower().replace(' ','_')}.json","+w") as file:
+                json.dump(self.parent.recipe_data,file,indent=4)
+        else:
+            os.remove("fav/"+name.lower().replace(' ','_')+".json")
+        favlabel = FavImage(self.parent_frame,self.parent)
+        self.destroy()
+
+
 class ClockFrame(CTkFrame):
     def __init__(self,parent_frame,sec):
         super().__init__(parent_frame)
@@ -66,7 +90,7 @@ class SingleFrame(CTkFrame):
         global min,clock
         super().__init__(parent_frame)
         self.configure(parent_frame, bg_color="transparent", fg_color="transparent", corner_radius= 10)
-
+        self.recipe_data = recipe_data
         left_side= CTkFrame(self,width= self.winfo_screenwidth()*0.3, bg_color="transparent", fg_color="transparent")
         left_side.pack(side= LEFT, fill= Y)
         right_side= CTkFrame(self,width= self.winfo_screenwidth()*0.7, fg_color="transparent")
@@ -83,8 +107,17 @@ class SingleFrame(CTkFrame):
         self.title_frame = CTkFrame(left_side, bg_color='transparent', fg_color='transparent', width= 350 )
         # self.title_frame.pack(padx=5)
         self.title_frame.place(relx= 0.02, rely=0.48, relwidth =0.9, relheight= 0.3)
-        title_label = CTkLabel(self.title_frame, text=recipe_data["recipe"].upper(), text_color="white",anchor=W, font=("Arial", 21,'bold'),width=100,height=30)
-        title_label.pack(pady=1,fill=X)
+        headerframe = CTkFrame(self.title_frame, bg_color="transparent",fg_color="transparent",width=self.title_frame.winfo_screenwidth())
+        headerframe.pack(fill=X,pady=5)
+        title_label = CTkLabel(headerframe, text=recipe_data["recipe"].upper(), text_color="white",anchor=W, font=("Arial", 21,'bold'),width=100,height=30)
+        title_label.pack(pady=1,side=LEFT)
+        fav_label = FavImage(headerframe,self)
+        # self.fav_label = CTkLabel(headerframe,text="" ,anchor=E, bg_color="#1B1C22",fg_color="#1B1C22", image=CTkImage(light_image= Image.open('./photos/fav.png'), size= (40,40)))
+        # self.fav_label.pack(side=RIGHT,pady=5)
+        # self.fav_label.bind("<Button-1>",self.toggleFav)
+
+
+
         detail_frame = CTkFrame(self.title_frame, bg_color="transparent",fg_color="transparent")
         detail_frame.pack(pady=2, padx= 2, fill= X)
         
@@ -157,4 +190,3 @@ class SingleFrame(CTkFrame):
         sec = int(self.min.get())*60
         clock = ClockFrame(self.title_frame,sec)
         clock.start_timer()
-

@@ -19,8 +19,7 @@ def extract_recipe_info(file):
 def create_recipe_list(folder_path):
     recipe_list = []
     file_names = os.listdir(folder_path)
-    selected_files = random.sample(file_names, min(8, len(file_names)))
-    for file_name in selected_files:
+    for file_name in file_names:
         if file_name.endswith('.json'):
             file_path = os.path.join(folder_path, file_name)
             with open(file_path, 'r') as file:
@@ -29,23 +28,23 @@ def create_recipe_list(folder_path):
     return recipe_list
 
 # Specify the folder path containing the recipe text files
-folder_path = 'recipes'
+folder_path = 'fav'
 
 # Create the list of recipes
 food = create_recipe_list(folder_path)
 
-class DashboardFrame(CTkFrame):
+class FavoritesFrame(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
         self.configure(fg_color="#1B1C22",bg_color="#44454A")
 
 
-        Tagline = CTkLabel(self,text="Unleash Your Inner Chef:\nExplore, Create, and Indulge\nin a Feast of Flavors",text_color="white",font=('Helvetica',30,'bold'),justify='left',anchor=W)
+        Tagline = CTkLabel(self,text="Love a recipe?\nSave it to enjoy again.",text_color="white",font=('Helvetica',35,'bold'),justify='left',anchor=W)
         Tagline.place(relx=0.07, rely=0.05, relwidth=0.6)
         CoverImage = Image.open("burger.png")
         logo_label = CTkLabel(self, text="", image=CTkImage(light_image=CoverImage, size=(200, 200)))
         logo_label.place(relx=0.6, rely=0.0, relwidth=0.4)
-        Recommendation = CTkLabel(self,text="Recommendations",text_color="white",font=('Helvetica',20,'bold'),justify='left',anchor=W)
+        Recommendation = CTkLabel(self,text="Favorite Recipes",text_color="white",font=('Helvetica',20,'bold'),justify='left',anchor=W)
         Recommendation.place(relx=0.07, rely=0.25, relwidth=0.9)
 
         self.flex_frame = CTkFrame(self, fg_color="#1B1C22", height=1000,bg_color="#1B1C22")
@@ -67,19 +66,21 @@ class DashboardFrame(CTkFrame):
          
             flex_frame = RecipeFrame(self.flex_frame, recipe_data=singleFood, corner_radius=10, parent_dashboard= self )
             flex_frame.grid(column=col, row = row,  padx=5, pady=5)
-  
-    def clear_recipes(self):
-        self.flex_frame.grid_remove()
 
     def initialize(self):
+        global food,folder_path
         self.grid(row=0,column=1,sticky="nsew")
-        self.clear_recipes()
+        self.flex_frame.destroy()
+        food = create_recipe_list(folder_path)
+        self.flex_frame = CTkFrame(self, fg_color="#1B1C22", height=1000,bg_color="#1B1C22")
+        self.flex_frame.place(relx=0.05, rely=0.30, relwidth=0.9, relheight=0.9)
         self.display_recipes()
     def clearSinglePage(self):
         try:
             self.single_recipe.destroy()
         except:
             i=1
+
 
 class RecipeFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data,parent_dashboard, **kwargs):
