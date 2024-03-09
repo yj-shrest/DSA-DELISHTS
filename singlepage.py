@@ -3,8 +3,9 @@ from PIL import Image, ImageTk
 # from filtersort import resize_image
 import time
 import json
-from playsound import playsound
-file = "timer.mp3"
+from pydub import AudioSegment
+from pydub.playback import play
+song = AudioSegment.from_wav('timer.wav')
 def resize_image(image, new_width, new_height):
     desired_aspect_ratio = new_width/new_height  
     # Calculate the new image size while maintaining the desired aspect ratio
@@ -88,7 +89,7 @@ class ClockFrame(CTkFrame):
         if(self.seconds>0):
             self.after(1000, self.update_timer)
         else:
-            playsound(file, False)
+            play(song)
 
 class SingleFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data):
@@ -192,6 +193,6 @@ class SingleFrame(CTkFrame):
     def start(self):
         global clock
         clock.destroy()
-        sec = int(self.min.get())*6
+        sec = int(self.min.get())*60
         clock = ClockFrame(self.title_frame,sec)
         clock.start_timer()

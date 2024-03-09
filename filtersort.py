@@ -125,8 +125,7 @@ class FilterSort(CTkFrame):
             print(self.filenames)
             global food
             if(flag =="Difficulty"):
-                List = file_loader(self.filenames)
-                self.filenames = sort_diff(List,1)
+                self.filenames = sort_diff(0,self.filenames)
             if(flag=="check"):
                 flag = self.sortBy.get()
                 self.update(flag)
