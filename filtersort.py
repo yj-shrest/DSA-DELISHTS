@@ -2,6 +2,7 @@ from customtkinter import *
 from PIL import Image,ImageTk,ImageDraw,ImageOps
 import json,random
 from hasher import HashTable
+from kmp import namesearcher
 def wrap_text(text, width):
     lines = []
     current_line = ""
@@ -43,6 +44,7 @@ def create_recipe_list(filenames):
     recipe_list = []
     selected_files = filenames
     for file_name in selected_files:
+        print(file_name)
         if file_name.endswith('.json'):
             file_path = os.path.join('recipes/', file_name)
             with open(file_path, 'r') as file:
@@ -98,12 +100,22 @@ class FilterSort(CTkFrame):
             food = create_recipe_list(filenames)
             self.results_frame.destroy()
             self.dispayRecipes()
+        def onkeypress(event):
+            global food
+            input = searchBar.get()
+            filenames = namesearcher(input)
+            print(filenames)
+            if filenames:
+                food = create_recipe_list(filenames)
+                self.results_frame.destroy()
+                self.dispayRecipes()
         search_frame = CTkFrame(self, fg_color="transparent")
         search_frame.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.05)
 
         searchBar = CTkEntry(search_frame, placeholder_text="Search Recipe", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
         searchBar.place(relx=0, rely=0, relwidth=0.8, relheight=1)
         searchBar.bind("<Return>",onenter)
+        searchBar.bind("<KeyRelease>",onkeypress)
 
         sortBy = CTkEntry(search_frame, placeholder_text="Sort By", fg_color="#393A3B", border_width=0, text_color="#BFBBBB")
         sortBy.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
