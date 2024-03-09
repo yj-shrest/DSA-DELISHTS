@@ -1,7 +1,32 @@
 from customtkinter import *
 from PIL import Image, ImageTk
-from filtersort import resize_image
+# from filtersort import resize_image
 import time
+
+
+
+def resize_image(image, new_width, new_height):
+    desired_aspect_ratio = new_width/new_height  
+    # Calculate the new image size while maintaining the desired aspect ratio
+    original_width, original_height = image.size
+    aspect_ratio = original_width / original_height
+    if aspect_ratio > desired_aspect_ratio:
+        # Image is wider than desired aspect ratio
+        new_height = original_height
+        new_width = int(new_height * desired_aspect_ratio)
+    else:
+        # Image is taller than desired aspect ratio
+        new_width = original_width
+        new_height = int(new_width / desired_aspect_ratio)
+
+    # Crop the image to the desired aspect ratio
+    left = (original_width - new_width) // 2
+    top = (original_height - new_height) // 2
+    right = left + new_width
+    bottom = top + new_height
+    cropped_image = image.crop((left, top, right, bottom))
+    return cropped_image
+
 
 clock =0
 def wrap_text(text, width):

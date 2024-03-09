@@ -3,6 +3,8 @@ from PIL import Image,ImageTk,ImageDraw,ImageOps
 import json,random
 from hasher import HashTable
 from kmp import namesearcher
+from singlepage import SingleFrame
+
 def wrap_text(text, width):
     lines = []
     current_line = ""
@@ -34,11 +36,12 @@ def create_rounded_image(image_path, size, corner_radius, opacity=255):
     return ImageTk.PhotoImage(image)
 
 class RoundedImageButton(CTkFrame):
-  def __init__(self, master, image_path, size=(100, 100), corner_radius=20, opacity=255):
+  def __init__(self, master, image_path,myparent,  size=(100, 100), corner_radius=20, opacity=255):
     super().__init__(master)
     
     self.image_label = CTkLabel(self,bg_color="#1B1C22",fg_color="#1B1C22",text=" ", image=create_rounded_image(image_path, size, corner_radius, opacity))
     self.image_label.pack(padx=0, pady=0)
+    self.image_label.bind("<Button-1>", myparent.openSingle)
     
 def create_recipe_list(filenames):
     recipe_list = []
@@ -77,6 +80,8 @@ def resize_image(image, new_width, new_height):
     bottom = top + new_height
     cropped_image = image.crop((left, top, right, bottom))
     return cropped_image
+
+
 class FilterSort(CTkFrame):
     def __init__(self, parent_frame, **kwargs):
         super().__init__(parent_frame, **kwargs)
@@ -123,34 +128,101 @@ class FilterSort(CTkFrame):
         self.results_frame = CTkFrame(self,fg_color="transparent")
         self.results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
         self.dispayRecipes()
+   
+    def single(self,temp):
+        self.single_recipe = SingleFrame(self,temp)
+        print(temp)
+        self.single_recipe.place(relx= 0.03, rely=0.03, relheight=0.95 ,relwidth= 0.96)
+
+   
     def dispayRecipes(self):
+
         self.results_frame = CTkFrame(self,fg_color="transparent")
         self.results_frame.place(relx=0.05,rely=0.10, relwidth= 0.9,relheight=0.90)
         for i,singleFood in enumerate(food):
-            recipe_item= CTkFrame(self.results_frame,fg_color="transparent",border_color="#393A3B",border_width=2,corner_radius=40)
+            
+            
+            recipe_item= RecipeFrame(self.results_frame,  parent_dashboard=self, singleFood=singleFood)
             recipe_item.place(relx=0.0,rely=0.03+0.23*i,relheight=0.20,relwidth=1)
-            recipe_image_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.25)
-            recipe_image_frame.pack(side=LEFT)
-            name = singleFood["recipe"]
-            image_path = './photos/'+"_".join(name.lower().split(" "))+'.jpg'
-            image_button = RoundedImageButton(recipe_image_frame, image_path, size=(228, 185), corner_radius=40, opacity=200)
-            image_button.pack(side=LEFT,fill=BOTH)
 
-            detail_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.7 )
-            detail_frame.pack(side=LEFT,padx=15)
+            # recipe_image_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.25)
+            # recipe_image_frame.pack(side=LEFT)
+            # name = singleFood["recipe"]
+            # image_path = './photos/'+"_".join(name.lower().split(" "))+'.jpg'
+            # image_button = RoundedImageButton(recipe_image_frame, image_path, size=(228, 185), corner_radius=40, opacity=200)
+            # image_button.pack(side=LEFT,fill=BOTH)
 
-            title = CTkLabel(detail_frame,text= singleFood["recipe"],anchor=W,bg_color="transparent",fg_color="transparent",text_color="white",font=(' ',22,'bold'))
-            title.pack(fill=X)
-            description = CTkLabel(detail_frame,justify=LEFT,text= wrap_text(singleFood["description"],120),anchor=W,bg_color="transparent",fg_color="transparent",text_color="#BFBBBB",font=(' ',16))
-            description.pack(fill=X,pady=5)
+            # detail_frame = CTkFrame(recipe_item,fg_color="transparent",height=recipe_item.winfo_screenheight()*0.95,width=recipe_item.winfo_screenwidth()*0.7 )
+            # detail_frame.pack(side=LEFT,padx=15)
 
-            another_frame = CTkFrame(detail_frame,fg_color="transparent",width=recipe_item.winfo_screenwidth())
-            another_frame.pack(fill=X)
+            # title = CTkLabel(detail_frame,text= singleFood["recipe"],anchor=W,bg_color="transparent",fg_color="transparent",text_color="white",font=(' ',22,'bold'))
+            # title.pack(fill=X)
+            # description = CTkLabel(detail_frame,justify=LEFT,text= wrap_text(singleFood["description"],120),anchor=W,bg_color="transparent",fg_color="transparent",text_color="#BFBBBB",font=(' ',16))
+            # description.pack(fill=X,pady=5)
 
-            time_label = CTkLabel(another_frame, text= ' '+ singleFood['time']+"  ", anchor=W,text_color="white",width=150,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/timeicon.png'), size= (20,20)),compound=LEFT,justify=LEFT)
-            time_label.pack(side=LEFT)
+            # another_frame = CTkFrame(detail_frame,fg_color="transparent",width=recipe_item.winfo_screenwidth())
+            # another_frame.pack(fill=X)
 
-            diff_label = CTkLabel(another_frame, text= ' '+ singleFood['difficulty']+"  ", anchor=W,text_color="white",width=100,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (22,15)),compound=LEFT,justify=LEFT)
-            diff_label.pack(side=LEFT, padx= 20)
+            # time_label = CTkLabel(another_frame, text= ' '+ singleFood['time']+"  ", anchor=W,text_color="white",width=150,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/timeicon.png'), size= (20,20)),compound=LEFT,justify=LEFT)
+            # time_label.pack(side=LEFT)
+
+            # diff_label = CTkLabel(another_frame, text= ' '+ singleFood['difficulty']+"  ", anchor=W,text_color="white",width=100,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (22,15)),compound=LEFT,justify=LEFT)
+            # diff_label.pack(side=LEFT, padx= 20)
+            # title.bind("<Button-1>",self.single)
+
+                # self.single_recipe.place(relx= 0.03, rely=0.03, relheight=0.95 ,relwidth= 0.96)
+
+            # recipe_image_frame.bind("<Button-1>",single)
+            # recipe_image_frame.bind("<Button-1>",single)
+    
+
+
+class RecipeFrame(CTkFrame):
+    def __init__(self, parent_frame,parent_dashboard, singleFood, **kwargs):
+        super().__init__(parent_frame, **kwargs)
+        self.recipe_data = singleFood
+        self.configure( parent_frame, fg_color="transparent",border_color="#393A3B",border_width=2,corner_radius=40)
+        self.parent_dashboard = parent_dashboard
+        # Description label
+        # image = image.resize((100, 100))  
+        # photo = ImageTk.PhotoImage(image)
+        # self.image_label.image = photo 
+      
+        recipe_image_frame = CTkFrame(self,fg_color="transparent",height=self.winfo_screenheight()*0.95,width=self.winfo_screenwidth()*0.25)
+        recipe_image_frame.pack(side=LEFT)
+        name = singleFood["recipe"]
+        image_path = './photos/'+"_".join(name.lower().split(" "))+'.jpg'
+        image_button = RoundedImageButton(recipe_image_frame, image_path, self, size=(228, 185), corner_radius=40, opacity=200)
+        image_button.pack(side=LEFT,fill=BOTH)
+
+        detail_frame = CTkFrame(self,fg_color="transparent",height=self.winfo_screenheight()*0.95,width=self.winfo_screenwidth()*0.7 )
+        detail_frame.pack(side=LEFT,padx=15)
+
+        title = CTkLabel(detail_frame,text= singleFood["recipe"],anchor=W,bg_color="transparent",fg_color="transparent",text_color="white",font=(' ',22,'bold'))
+        title.pack(fill=X)
+        description = CTkLabel(detail_frame,justify=LEFT,text= wrap_text(singleFood["description"],120),anchor=W,bg_color="transparent",fg_color="transparent",text_color="#BFBBBB",font=(' ',16))
+        description.pack(fill=X,pady=5)
+
+        another_frame = CTkFrame(detail_frame,fg_color="transparent",width=self.winfo_screenwidth())
+        another_frame.pack(fill=X)
+
+        time_label = CTkLabel(another_frame, text= ' '+ singleFood['time']+"  ", anchor=W,text_color="white",width=150,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/timeicon.png'), size= (20,20)),compound=LEFT,justify=LEFT)
+        time_label.pack(side=LEFT)
+
+        diff_label = CTkLabel(another_frame, text= ' '+ singleFood['difficulty']+"  ", anchor=W,text_color="white",width=100,height=20,font=(' ',20,'normal'),image=CTkImage(light_image= Image.open('./photos/difficultyicon.png'), size= (22,15)),compound=LEFT,justify=LEFT)
+        diff_label.pack(side=LEFT, padx= 20)
+        title.bind("<Button-1>",self.openSingle)
+        time_label.bind("<Button-1>",self.openSingle)
+        description.bind("<Button-1>",self.openSingle)
+        diff_label.bind("<Button-1>",self.openSingle)
+        self.bind("<Button-1>",self.openSingle)
+        another_frame.bind("<Button-1>",self.openSingle)
+
+
+        # invisible_button = Button(master=self,image=transparency, width=20, height= 20, command = self.parent_dashboard.single )
+        # invisible_button.place(relx=0.0, rely=0.0)
+    def openSingle(self,t):
+        current_data= self.recipe_data
+        self.parent_dashboard.single(current_data)
+    
         
-
