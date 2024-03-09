@@ -31,24 +31,7 @@ def file_loader(recipe_ko_vandaar=set()):
         Recipe_list.append(temp)
     return Recipe_list
    
-def parse_time(time_str):
-  time_str = time_str.replace(" ", "")
-  
-  # Split the string into hours and minutes
-  if "h" in time_str:
-      hours, minutes = time_str.split("h")
-      minutes = minutes.replace("m", "")
-  else:
-      hours = "0"
-      minutes = time_str.replace("m", "")
-  
-  # Convert hours and minutes to integers
-  hours = int(hours)
-  minutes = int(minutes)
-  
-  # Calculate total time in minutes
-  total_minutes = hours * 60 + minutes
-  return total_minutes
+
 
 def sort_time(recipe_list, ascending=True):
     if not recipe_list:  # Handle empty list case for clarity
