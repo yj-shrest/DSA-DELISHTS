@@ -90,6 +90,8 @@ def updatetree(filename):           #call immediately after adding a file
         bst.insert(x)
         #x=bst.inorder_traversal()
         
+
+    
 def sort_time(ascending__not_descending,filenames=set()):
         x=bst.inorder_traversal()
         if filenames:
@@ -107,7 +109,6 @@ def sort_time(ascending__not_descending,filenames=set()):
             output.reverse()
             return output
 createtree()
-print(sort_time(1,{"milk_tea.json","cheese_burger.json"}))
             
                 
             
