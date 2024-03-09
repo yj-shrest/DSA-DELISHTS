@@ -3,7 +3,7 @@ import os
 import shutil
 import json
 # from hasher import customhash
-
+import bst
 class Recipe:
     def __init__(self, name,hr,min,diff,des,ingredients, steps,photoPath):
         self.name = name
@@ -29,9 +29,11 @@ class Recipe:
       "steps": self.steps,
       "isfav": False
     }
-        
-        with open(f"recipes/{self.name.lower().replace(' ','_')}.json","+w") as file:
+        filename = self.name.lower().replace(' ','_')+".json"
+        with open(f"recipes/{filename}","+w") as file:
             json.dump(dict,file,indent=4)
+        
+        bst.updatetree({filename})
     # def has(self):
     #     ingredients=self.ingredients.split()
     #     for i in ingredients:
