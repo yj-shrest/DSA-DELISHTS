@@ -6,15 +6,6 @@ import random
 from singlepage import SingleFrame
 import json
 from filtersort import resize_image
-def extract_recipe_info(file):
-    recipe_info = {}
-    for line in file:
-        if ': ' in line:
-            key, value = line.strip().split(': ', 1)
-            recipe_info[key.lower()] = value
-
-    return recipe_info
-
 # Function to create a list of recipe dictionaries from all text files in a folder
 def create_recipe_list(folder_path):
     recipe_list = []

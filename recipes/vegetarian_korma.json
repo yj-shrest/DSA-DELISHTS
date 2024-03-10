@@ -1,0 +1,86 @@
+{
+    "recipe": "Vegetarian Korma",
+    "description": "Vegetarian korma is a creamy and flavorful Indian dish made with mixed vegetables cooked in a rich and aromatic sauce. It's a comforting and satisfying meal that pairs well with rice or bread.",
+    "difficulty": "Medium",
+    "time": "0 h 40 m",
+    "ingredients": [
+      {
+        "name": "Mixed vegetables (such as potatoes, carrots, peas, cauliflower)",
+        "qty": "2 cups, chopped"
+      },
+      {
+        "name": "Onion",
+        "qty": "1 large, finely chopped"
+      },
+      {
+        "name": "Tomatoes",
+        "qty": "2 medium-sized, finely chopped"
+      },
+      {
+        "name": "Ginger-garlic paste",
+        "qty": "1 tablespoon"
+      },
+      {
+        "name": "Green chilies",
+        "qty": "2-3, slit"
+      },
+      {
+        "name": "Cashew nuts",
+        "qty": "1/4 cup, soaked in warm water for 15 minutes"
+      },
+      {
+        "name": "Yogurt",
+        "qty": "1/2 cup"
+      },
+      {
+        "name": "Fresh cream",
+        "qty": "1/4 cup"
+      },
+      {
+        "name": "Coriander powder",
+        "qty": "1 tablespoon"
+      },
+      {
+        "name": "Cumin powder",
+        "qty": "1 teaspoon"
+      },
+      {
+        "name": "Turmeric powder",
+        "qty": "1/2 teaspoon"
+      },
+      {
+        "name": "Red chili powder",
+        "qty": "1/2 teaspoon"
+      },
+      {
+        "name": "Garam masala",
+        "qty": "1 teaspoon"
+      },
+      {
+        "name": "Salt",
+        "qty": "To taste"
+      },
+      {
+        "name": "Cooking oil or ghee",
+        "qty": "3 tablespoons"
+      },
+      {
+        "name": "Fresh coriander leaves",
+        "qty": "For garnish"
+      }
+    ],
+    "steps": [
+      "Heat oil or ghee in a large skillet or pan over medium heat. Add chopped onions and sauté until golden brown.",
+      "Add ginger-garlic paste and slit green chilies to the skillet. Sauté for a minute until fragrant.",
+      "Add chopped tomatoes and cook until they turn mushy.",
+      "Add soaked cashew nuts to the skillet along with yogurt. Cook for 2-3 minutes.",
+      "Add coriander powder, cumin powder, turmeric powder, red chili powder, garam masala, and salt to the skillet. Mix well and cook for a couple of minutes.",
+      "Add the mixed vegetables to the skillet and mix until they are well coated with the masala.",
+      "Cover the skillet and let the vegetables cook on low heat for about 15-20 minutes, or until they are cooked through and tender.",
+      "Once the vegetables are cooked, add fresh cream to the skillet and mix well.",
+      "Garnish with fresh coriander leaves.",
+      "Serve hot with rice or bread. Enjoy your delicious vegetarian korma!"
+    ],
+    "isfav": false
+  }
+  

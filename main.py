@@ -97,6 +97,7 @@ def placeitems():
     button_favourites = CTkButton(navigation_items_frame,hover=False,corner_radius=30, text="Favourites", text_color="white", fg_color=getnavcolor(4,nav),command=callnav4,font=(' ',18))
     button_favourites.pack(pady=8)
 placeitems()
+print(1)
 dashboard_frame = DashboardFrame(app,width=650)
 add_recipe_frame = AddRecipeFrame(app,width=650)
 filter_sort_frame = FilterSort(app,width=650)

@@ -1,0 +1,16 @@
+{
+    "recipe": "Veg Sandwich",
+    "description": "Vegetable sandwich is a healthy and filling snack made with a variety of fresh vegetables, cheese, and bread. It's easy to make and perfect for a quick breakfast, lunch, or snack.\n",
+    "difficulty": "Easy",
+    "time": "0 h 15 m",
+    "ingredients": [
+        {
+            "name": "",
+            "qty": ""
+        }
+    ],
+    "steps": [
+        "Spread softened butter evenly on one side of each bread slice."
+    ],
+    "isfav": false
+}

@@ -1,0 +1,82 @@
+{
+    "recipe": "Samosa",
+    "description": "Samosa is a popular Indian snack made with crispy pastry filled with spicy potato filling. It's a delicious and satisfying snack enjoyed by people all over the world.",
+    "difficulty": "Medium",
+    "time": "1 h 30 m",
+    "ingredients": [
+          {
+            "name": "All-purpose flour",
+            "qty": "2 cups"
+          },
+          {
+            "name": "Carom seeds (ajwain)",
+            "qty": "1 teaspoon"
+          },
+          {
+            "name": "Water",
+            "qty": "1/2 cup, or as needed"
+          },
+          {
+            "name": "Potato",
+            "qty": "3 large, boiled and mashed"
+          },
+          {
+            "name": "Green peas",
+            "qty": "1/2 cup, boiled"
+          },
+          {
+            "name": "Onion",
+            "qty": "1 large, finely chopped"
+          },
+          {
+            "name": "Green chili",
+            "qty": "1, finely chopped"
+          },
+          {
+            "name": "Ginger",
+            "qty": "1 teaspoon, grated"
+          },
+          {
+            "name": "Cumin seeds",
+            "qty": "1 teaspoon"
+          },
+          {
+            "name": "Coriander powder",
+            "qty": "1 teaspoon"
+          },
+          {
+            "name": "Turmeric powder",
+            "qty": "1/2 teaspoon"
+          },
+          {
+            "name": "Garam masala",
+            "qty": "1/2 teaspoon"
+          },
+          {
+            "name": "Amchur powder (dry mango powder)",
+            "qty": "1 teaspoon"
+          },
+          {
+            "name": "Fresh coriander leaves",
+            "qty": "2 tablespoons, chopped"
+          },
+          {
+            "name": "Vegetable oil",
+            "qty": "2 tablespoons"
+          }
+    ],
+    "steps": [
+      "To make the dough, combine all-purpose flour, salt, carom seeds, and vegetable oil in a mixing bowl. Gradually add water and knead until you have a smooth and firm dough. Cover the dough with a damp cloth and let it rest for 30 minutes.",
+      "To make the filling, heat vegetable oil in a pan over medium heat. Add cumin seeds and let them splutter. Add chopped onions, green chili, and grated ginger. Sauté until onions are translucent.",
+      "Add mashed potatoes, boiled green peas, coriander powder, turmeric powder, garam masala, amchur powder, salt, and chopped coriander leaves to the pan. Mix well and cook for a few minutes until the filling is well combined and heated through. Remove from heat and let it cool.",
+      "Divide the dough into equal-sized balls and roll each ball into a thin circle.",
+      "Cut each circle in half to form two semi-circles.",
+      "Take one semi-circle and fold it into a cone shape, sealing the edges with water.",
+      "Fill the cone with potato filling and seal the open edge using water to form a triangle shape. Press the edges to ensure they are sealed tightly.",
+      "Repeat the process with the remaining dough and filling.",
+      "Heat vegetable oil in a deep pan or fryer over medium heat. Once the oil is hot, carefully add the samosas in batches and fry until golden brown and crispy, turning occasionally. Drain on paper towels to remove excess oil.",
+      "Serve hot with mint chutney or tamarind chutney. Enjoy your delicious homemade samosas!"
+    ],
+    "isfav": false
+  }
+  
