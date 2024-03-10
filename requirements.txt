@@ -1,0 +1,6 @@
+customtkinter==5.2.2
+darkdetect==0.8.0
+packaging==23.2
+Pillow==9.5.0
+pydub==0.25.1
+watchdog==4.0.0
