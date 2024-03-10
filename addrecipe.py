@@ -175,7 +175,7 @@ class AddRecipeFrame(CTkFrame):
                 self.after(3000, self.deleter)
                 return
             
-            if (not hr.isdigit() or not min.isdigit()):
+            if (not hr.isdigit() or not min.isdigit() or int(min)>=60):
                 self.type_message.place(relx=0.1,rely=0.65,relheight=0.1)
                 self.after(3000, self.deleter)
                 return

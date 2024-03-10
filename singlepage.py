@@ -5,6 +5,8 @@ import time
 import json
 from pydub import AudioSegment
 from pydub.playback import play
+import tempfile
+
 song = AudioSegment.from_wav('timer.wav')
 def resize_image(image, new_width, new_height):
     desired_aspect_ratio = new_width/new_height  
@@ -90,7 +92,6 @@ class ClockFrame(CTkFrame):
             self.after(1000, self.update_timer)
         else:
             play(song)
-
 class SingleFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data):
         global min,clock
@@ -193,6 +194,6 @@ class SingleFrame(CTkFrame):
     def start(self):
         global clock
         clock.destroy()
-        sec = int(self.min.get())*60
+        sec = int(self.min.get())*6
         clock = ClockFrame(self.title_frame,sec)
         clock.start_timer()

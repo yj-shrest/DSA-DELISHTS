@@ -89,7 +89,7 @@ def updatetree(filename):           #call immediately after adding a file
         
 
     
-def sort_time(ascending__not_descending,filenames=set()):
+def sort_time(ascending__not_descending,flag,filenames=set()):
         x=bst.inorder_traversal()
         if filenames:
             output=[]
@@ -97,8 +97,10 @@ def sort_time(ascending__not_descending,filenames=set()):
                 if y in filenames:
                     output.append(y)
         
-        else:
+        elif flag==1:
             output=x
+        else:
+            output =[]
         
         if (ascending__not_descending==1):
             return output
