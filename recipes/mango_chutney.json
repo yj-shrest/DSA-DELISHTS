@@ -1,0 +1,70 @@
+{
+    "recipe": "Mango chutney",
+    "description": "Mango chutney is a sweet and tangy condiment made with ripe mangoes, sugar, vinegar, and spices. It's a versatile accompaniment that adds a burst of flavor to sandwiches, curries, grilled meats, and more.\n",
+    "difficulty": "Easy",
+    "time": "0 h 30 m",
+    "ingredients": [
+        {
+            "name": "Mango",
+            "qty": "2 large, peeled and diced"
+        },
+        {
+            "name": "Brown sugar",
+            "qty": "1/2 cup"
+        },
+        {
+            "name": "White vinegar",
+            "qty": "1/4 cup"
+        },
+        {
+            "name": "Onion",
+            "qty": "1 medium, finely chopped"
+        },
+        {
+            "name": "Ginger",
+            "qty": "1 teaspoon, grated"
+        },
+        {
+            "name": "Garlic",
+            "qty": "1 clove, minced"
+        },
+        {
+            "name": "Raisins",
+            "qty": "2 tablespoons"
+        },
+        {
+            "name": "Mustard seeds",
+            "qty": "1/2 teaspoon"
+        },
+        {
+            "name": "Cumin seeds",
+            "qty": "1/2 teaspoon"
+        },
+        {
+            "name": "Red chili flakes",
+            "qty": "1/4 teaspoon"
+        },
+        {
+            "name": "Salt",
+            "qty": "1/2 teaspoon"
+        },
+        {
+            "name": "Water",
+            "qty": "1/4 cup"
+        },
+        {
+            "name": "Cooking oil",
+            "qty": "1 tablespoon"
+        }
+    ],
+    "steps": [
+        "Heat oil in a saucepan over medium heat. Add mustard seeds and cumin seeds. Let them splutter.",
+        "Add chopped onions, grated ginger, and minced garlic to the saucepan. Saute until onions are soft and translucent.",
+        "Add diced mangoes, brown sugar, white vinegar, raisins, red chili flakes, salt, and water to the saucepan. Mix well.",
+        "Simmer the mixture over medium-low heat, stirring occasionally, until the mangoes are soft and the chutney thickens. This may take about 15-20 minutes.",
+        "Once the chutney reaches the desired consistency, remove it from heat and let it cool to room temperature.",
+        "Transfer the mango chutney to sterilized jars and store them in the refrigerator.",
+        "Enjoy your homemade mango chutney as a condiment with your favorite dishes!"
+    ],
+    "isfav": false
+}

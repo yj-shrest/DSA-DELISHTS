@@ -1,0 +1,56 @@
+{
+    "recipe": "Sushi",
+    "description": "Sushi is a traditional Japanese dish consisting of vinegared rice combined with various ingredients such as seafood, vegetables, and sometimes tropical fruits. It's often served with soy sauce, pickled ginger, and wasabi.",
+    "difficulty": "Medium",
+    "time": "1 h 0 m",
+    "ingredients": [
+      {
+        "name": "Sushi rice",
+        "qty": "2 cups"
+      },
+      {
+        "name": "Nori (seaweed sheets)",
+        "qty": "4 sheets"
+      },
+      {
+        "name": "Assorted fillings (such as raw fish, cooked seafood, avocado, cucumber, carrot)",
+        "qty": "As desired"
+      },
+      {
+        "name": "Rice vinegar",
+        "qty": "1/4 cup"
+      },
+      {
+        "name": "Sugar",
+        "qty": "2 tablespoons"
+      },
+      {
+        "name": "Salt",
+        "qty": "1 teaspoon"
+      },
+      {
+        "name": "Soy sauce",
+        "qty": "For serving"
+      },
+      {
+        "name": "Pickled ginger",
+        "qty": "For serving"
+      },
+      {
+        "name": "Wasabi",
+        "qty": "For serving"
+      }
+    ],
+    "steps": [
+      "Prepare the sushi rice: Rinse the rice under cold water until the water runs clear. Cook the rice according to package instructions. In a small saucepan, combine rice vinegar, sugar, and salt. Heat over low heat until the sugar dissolves. Once the rice is cooked, transfer it to a large bowl and gently fold in the vinegar mixture. Let the rice cool to room temperature.",
+      "Prepare the fillings: Slice the raw fish or cooked seafood into thin strips. Cut the avocado, cucumber, and carrot into thin strips as well.",
+      "Assemble the sushi: Place a sheet of nori on a bamboo sushi mat or a clean kitchen towel. With wet hands, spread a thin layer of sushi rice evenly over the nori, leaving about 1 inch of space at the top.",
+      "Arrange the fillings in a line along the bottom edge of the rice.",
+      "Roll the sushi: Starting from the bottom edge, tightly roll the sushi using the bamboo mat or kitchen towel. Apply gentle pressure as you roll to ensure the sushi holds its shape.",
+      "Slice the sushi roll into bite-sized pieces using a sharp knife dipped in water to prevent sticking.",
+      "Serve the sushi with soy sauce, pickled ginger, and wasabi on the side.",
+      "Enjoy your homemade sushi!"
+    ],
+    "isfav": false
+  }
+  

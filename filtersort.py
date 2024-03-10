@@ -5,7 +5,8 @@ from hasher import HashTable
 from kmp import namesearcher
 from singlepage import SingleFrame
 import time
-from sort import file_loader,sort_diff,sort_time
+from sort import file_loader,sort_diff
+import bst
 def wrap_text(text, width):
     lines = []
     current_line = ""
@@ -105,8 +106,11 @@ class FilterSort(CTkFrame):
             self.update("check")
         def onkeypress(event):
             global food
+            print(event.keysym)
             if(event.keysym !="Return"):
                 input = searchBar.get()
+                if not input:
+                    input = " "
                 self.filenames = namesearcher(input)
                 self.update("no")
         
@@ -125,18 +129,19 @@ class FilterSort(CTkFrame):
             print(self.filenames)
             global food
             if(flag =="Difficulty"):
-                self.filenames = sort_diff(0,self.filenames)
+                self.filenames = sort_diff(1,self.filenames)
             if(flag=="check"):
                 flag = self.sortBy.get()
                 self.update(flag)
                 # print(self.filenames)
             if(flag=="Time"):
-                List = file_loader(self.filenames)
-                self.filenames = sort_time(List)
-            if self.filenames:
-                food = create_recipe_list(self.filenames)
-                self.results_frame.destroy()
-                self.dispayRecipes()
+                if(self.sortBy.get()):
+                    self.filenames = bst.sort_time(1,0,self.filenames)
+                else:
+                    self.filenames = bst.sort_time(1,1,self.filenames)
+            food = create_recipe_list(self.filenames)
+            self.results_frame.destroy()
+            self.dispayRecipes()
     def single(self,temp):
         self.single_recipe = SingleFrame(self,temp)
         # print(temp)

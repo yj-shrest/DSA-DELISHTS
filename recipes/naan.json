@@ -1,0 +1,65 @@
+{
+    "recipe": "Naan",
+    "description": "Naan is a popular Indian flatbread known for its soft and fluffy texture. It's traditionally made in a tandoor oven, but you can easily make it at home using a skillet or oven.",
+    "difficulty": "Medium",
+    "time": "2 h 0 m",
+    "ingredients": [
+      {
+        "name": "All-purpose flour",
+        "qty": "2 cups"
+      },
+      {
+        "name": "Active dry yeast",
+        "qty": "1 teaspoon"
+      },
+      {
+        "name": "Sugar",
+        "qty": "1 teaspoon"
+      },
+      {
+        "name": "Warm water",
+        "qty": "1/2 cup"
+      },
+      {
+        "name": "Yogurt",
+        "qty": "1/4 cup"
+      },
+      {
+        "name": "Salt",
+        "qty": "1/2 teaspoon"
+      },
+      {
+        "name": "Baking powder",
+        "qty": "1/2 teaspoon"
+      },
+      {
+        "name": "Milk",
+        "qty": "1/4 cup"
+      },
+      {
+        "name": "Butter",
+        "qty": "2 tablespoons, melted"
+      },
+      {
+        "name": "Garlic",
+        "qty": "2 cloves, minced (optional)"
+      },
+      {
+        "name": "Fresh coriander leaves",
+        "qty": "2 tablespoons, chopped (optional)"
+      }
+    ],
+    "steps": [
+      "In a small bowl, combine active dry yeast, sugar, and warm water. Let it sit for 5-10 minutes until frothy.",
+      "In a large mixing bowl, combine all-purpose flour, salt, baking powder, and yogurt. Mix well.",
+      "Add the yeast mixture to the flour mixture and knead until you have a smooth and elastic dough. If the dough is too dry, add a little more warm water. Cover the dough with a damp cloth and let it rest in a warm place for about 1 hour, or until it doubles in size.",
+      "Once the dough has doubled in size, punch it down and divide it into equal-sized balls.",
+      "Preheat your skillet or oven to high heat.",
+      "Roll out each dough ball into a thin oval or round shape, about 1/4 inch thick.",
+      "Place the rolled-out dough onto the skillet or baking sheet and cook for 1-2 minutes on each side, or until golden brown and puffy.",
+      "Brush each naan with melted butter and sprinkle with minced garlic and chopped coriander leaves if desired.",
+      "Serve hot and enjoy your homemade naan with your favorite curry or dip!"
+    ],
+    "isfav": false
+  }
+  

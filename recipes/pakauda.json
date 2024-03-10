@@ -5,28 +5,58 @@
     "time": " 2 h 3 m",
     "ingredients": [
         {
-            "name": "Onion",
-            "qty": "500gm"
+          "name": "Vegetables (such as onions, potatoes, spinach, cauliflower)",
+          "qty": "2 cups, chopped"
         },
         {
-            "name": "Cabbage",
-            "qty": "500gm"
+          "name": "Gram flour (besan)",
+          "qty": "1 cup"
         },
         {
-            "name": "Vegetable oil",
-            "qty": "1ltr"
+          "name": "Rice flour",
+          "qty": "2 tbsp"
         },
         {
-            "name": "Salt",
-            "qty": "to taste"
+          "name": "Cumin seeds",
+          "qty": "1 tsp"
         },
         {
-            "name": "Besan",
-            "qty": "unspecified"
+          "name": "Turmeric powder",
+          "qty": "1/2 tsp"
+        },
+        {
+          "name": "Red chilli powder",
+          "qty": "1/2 tsp"
+        },
+        {
+          "name": "Garam masala",
+          "qty": "1/2 tsp"
+        },
+        {
+          "name": "Baking soda",
+          "qty": "1/4 tsp"
+        },
+        {
+          "name": "Salt",
+          "qty": "To taste"
+        },
+        {
+          "name": "Water",
+          "qty": "As required"
+        },
+        {
+          "name": "Oil",
+          "qty": "For deep frying"
         }
-    ],
-    "steps": [
-        "make pakauda"
-    ],
+      ],
+      "steps": [
+        "In a mixing bowl, combine gram flour, rice flour, cumin seeds, turmeric powder, red chilli powder, garam masala, baking soda, and salt. Mix well.",
+        "Gradually add water to the dry ingredients to make a smooth batter of pouring consistency.",
+        "Add the chopped vegetables to the batter and mix until they are evenly coated.",
+        "Heat oil in a deep frying pan over medium heat.",
+        "Drop spoonfuls of the vegetable-batter mixture into the hot oil and fry until golden brown and crispy, turning occasionally.",
+        "Once the pakauda turns golden brown and crispy, remove them from the oil using a slotted spoon and drain excess oil on paper towels.",
+        "Serve hot pakauda with chutney or sauce of your choice. Enjoy!"
+      ],
     "isfav": false
 }
