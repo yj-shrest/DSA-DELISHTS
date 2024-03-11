@@ -1,0 +1,16 @@
+{
+    "recipe": "Yugesh",
+    "description": "yugesh\n",
+    "difficulty": "Easy",
+    "time": "23 h 4 m",
+    "ingredients": [
+        {
+            "name": "yuugesh",
+            "qty": "23"
+        }
+    ],
+    "steps": [
+        "dfa"
+    ],
+    "isfav": true
+}

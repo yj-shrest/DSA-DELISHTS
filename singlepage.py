@@ -3,11 +3,12 @@ from PIL import Image, ImageTk
 # from filtersort import resize_image
 import time
 import json
-from pydub import AudioSegment
-from pydub.playback import play
-import tempfile
+import sounddevice as sd
+import soundfile as sf
 
-song = AudioSegment.from_wav('timer.wav')
+# Replace "audio_file.mp3" or "audio_file.wav" with your actual file path
+audio_file_path = "timer.mp3"
+data, samplerate = sf.read(audio_file_path)
 def resize_image(image, new_width, new_height):
     desired_aspect_ratio = new_width/new_height  
     # Calculate the new image size while maintaining the desired aspect ratio
@@ -29,8 +30,6 @@ def resize_image(image, new_width, new_height):
     bottom = top + new_height
     cropped_image = image.crop((left, top, right, bottom))
     return cropped_image
-
-
 clock =0
 def wrap_text(text, width):
     lines = []
@@ -91,7 +90,8 @@ class ClockFrame(CTkFrame):
         if(self.seconds>0):
             self.after(1000, self.update_timer)
         else:
-            play(song)
+            sd.play(data, samplerate=samplerate)
+            sd.wait()
 class SingleFrame(CTkFrame):
     def __init__(self, parent_frame, recipe_data):
         global min,clock
@@ -194,6 +194,6 @@ class SingleFrame(CTkFrame):
     def start(self):
         global clock
         clock.destroy()
-        sec = int(self.min.get())*6
+        sec = int(self.min.get())*60
         clock = ClockFrame(self.title_frame,sec)
         clock.start_timer()
